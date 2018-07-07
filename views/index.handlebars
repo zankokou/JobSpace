@@ -1,0 +1,55 @@
+<div class='header'>
+  <h1>BURGERS</h1>
+  <img id='image' src="/assets/images/burger.png" alt="burger image">
+</div>
+
+<div class='uneatenHeader'>
+  <h3>UNEATEN</h3>
+</div>
+
+<div class='buttonsHeader'>
+</div>
+
+
+<div class='devouredHeader'>
+  <h3>DEVOURED</h3>
+</div>
+
+<div class='uneaten'>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <div class='list'>
+          {{id}}. {{burger_name}}
+        </div>
+      {{/unless}}
+    {{/each}}
+</div>
+
+<div class='buttons'>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <div class='list'>
+          <button class="change-devoured" data-id="{{id}}">
+            DEVOUR
+          </button>
+        </div>
+      {{/unless}}
+    {{/each}}
+</div>
+
+<div class='devoured'>
+    {{#each burgers}}
+      {{#if devoured}}
+        <div class='list'>
+          {{id}}. {{burger_name}}
+        </div>
+      {{/if}}
+    {{/each}}
+</div>
+
+</br>
+
+<div class='addBurger'>
+  <input type="text" id="burger">
+  <button type="submit" id='addBurger'>ADD BURGER</button>
+</div>
