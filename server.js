@@ -13,6 +13,8 @@ var routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
 
+console.log('test commit -scott');
+console.log('quick push test for git')
 
 
 app.listen(PORT, function() {
