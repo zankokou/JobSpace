@@ -13,7 +13,7 @@ var routes = require("./controllers/burgers_controller.js");
 app.use(routes);
 
 
-
+console.log('test commit -scott');
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
