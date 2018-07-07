@@ -14,6 +14,8 @@ app.use(routes);
 
 
 console.log('test commit -scott');
+console.log('quick push test for git')
+
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
