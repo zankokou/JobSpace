@@ -1,1 +1,1 @@
-*** Job Application tracker application
+*** Job Application tracker application.
