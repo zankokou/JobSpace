@@ -73,3 +73,11 @@
 .sidebar-nav li a:hover {
   background: #00897b;
 }
+
+#profile_pic{
+  text-align: center;
+  background: white;
+  border: 1px #2c3e50 solid;
+  margin: 0px;
+  padding-bottom: 10px;
+}
