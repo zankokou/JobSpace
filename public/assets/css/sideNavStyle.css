@@ -2,6 +2,12 @@
   margin-bottom: 0px;
 }
 
+#menu-toggle{
+  width: 250px;
+  background: #2c3e50;
+  color:white;
+}
+
 /* Sidebar */
 
 #sidebar-wrapper {
@@ -65,5 +71,5 @@
 }
 
 .sidebar-nav li a:hover {
-  background: blue;
+  background: #00897b;
 }
