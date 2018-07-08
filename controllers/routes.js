@@ -9,14 +9,14 @@ var connection = require('../config/connection')
 var burger = require("../models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/jobsScreen", function(req, res) {
+router.get("/jobs", function(req, res) {
 
   console.log('this is the __dirname!!!', __dirname);
-  res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
+  res.sendFile(path.join(__dirname, '../public/assets/', 'jobsScreen.html'));
 });
 
-router.get("/addAJob", function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/assets/', 'jobsScreen.html'));
+router.get("/edit", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
 });
 
 

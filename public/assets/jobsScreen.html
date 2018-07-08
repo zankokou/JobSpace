@@ -1,22 +1,102 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Side Nav Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-    <!-- <script src="./jobScreen.js"></script> -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jobsScreen.js"></script>
+
+    <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
+
+
 </head>
+
 <body>
-    <h1> THis is going to be our job screen!!</h1>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <img alt="Brand" height="30px" src="images/github.png">
+                </a>
+            </div>
+        </div>
+        <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
+
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a>One</a>
+                </li>
+                <li>
+                    <a>Two</a>
+                </li>
+                <li>
+                    <a>Three</a>
+                </li>
+                <li>
+                    <a>Four</a>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="content col-lg-4 rounded">
+                        <h1>WishList</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas ad neque voluptates officia cumque corporis, odit vitae tempore maxime sapiente repellat iure nesciunt tempora eos, hic est fuga illo repellendus?</p>
+
+                    </div>
+                    <div class="content col-lg-4 rounded">
+                        <h1>Applied</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas ad neque voluptates officia cumque corporis, odit vitae tempore maxime sapiente repellat iure nesciunt tempora eos, hic est fuga illo repellendus?</p>
+
+
+                    </div>
+                    <div class="content col-lg-4 rounded">
+                        <h1>Interviewed</h1>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas ad neque voluptates officia cumque corporis, odit vitae tempore maxime sapiente repellat iure nesciunt tempora eos, hic est fuga illo repellendus?</p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- Menu toggle script -->
     <script>
-        $(document).ready(function(){
-            console.log('ready to do ajax calls to hit up routes and grab some data!!!');
-        })
+        // $("#menu-toggle").click(function (e) {
+        //     e.preventDefault();
+        //     $('#wrapper').toggleClass("menuDisplayed");
+        // });
     </script>
 </body>
+
 </html>
