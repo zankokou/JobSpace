@@ -52,6 +52,16 @@ var orm = {
     });
   },
 
+  findOne: function(table, id, cb) {
+    var queryString = "SELECT * FROM " + table + " WHERE id = ?;";
+    connection.query(queryString, id, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+
   insertOne: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
