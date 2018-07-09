@@ -5,16 +5,17 @@ var app = express();
 
 var path = require('path');
 
-app.use('/public',express.static(path.join(__dirname + '/public')))
+app.use(express.static("public/assets"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-var routes = require("./controllers/burgers_controller.js");
+var routes = require("./controllers/routes");
 app.use(routes);
-
-
 
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
 });
+
+
+console.log('here is my branch console log.')

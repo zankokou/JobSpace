@@ -1,4 +1,3 @@
-!
 <!DOCTYPE html>
 <html>
 
@@ -6,23 +5,64 @@
     <!-- <meta charset="utf-8" /> -->
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
     <title>Page Title</title>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <!-- <script src="./addScreen.js"></script> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="/js/addScreen.js"></script>
 
-
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
 <body>
-        <h1> THis is going to be our add/edit job sceren!!!!</h1>
-    <script>
-        $(document).ready(function () {
-            console.log('ready to do ajax calls to hit up routes and grab some data!!!');
-        })
-    </script>
+        <div id="error"></div>
+        Company *<br>
+        <input type="text" name="company" value="">
+        <br><br>
+        Location<br>
+        <input type="text" name="location" value="">
+        <br><br>
+        Title *<br>
+        <input type="text" name="title" value="">
+        <br><br>
+        Description<br>
+        <input type="text" name="description" value="">
+        <br><br>
+        Company link<br>
+        <input type="text" name="company_link" value="">
+        <br><br>
+        Posting link<br>
+        <input type="text" name="posting_link" value="">
+        <br><br>
+        Primary contact<br>
+        name:<br>
+        <input type="text" name="primary_contact_name" value="">
+        <br>position:<br>
+        <input type="text" name="primary_contact_position" value="">
+        <br>email:<br>
+        <input type="text" name="primary_contact_email" value="">
+        <br>phone:<br>
+        <input type="text" name="primary_contact_phone" value="">
+        <br><br>
+        salary<br>
+        <input type="text" name="salary" value="">
+        <br><br>
+        notes<br>
+        <input type="text" name="notes" value="">
+        <br><br>
+        stage<br>
+        <select id="stage">
+          <option value="applied">applied</option>
+          <option value="phone interviewed">phone interviewed</option>
+          <option value="in person interviewed">in person interviewed</option>
+          <option value="offered">offered</option>
+          <option value="archived">archived</option>
+        </select>
+        <br><br>
+        <button id='submit'>submit</button>
+
 </body>
 
 </html>
