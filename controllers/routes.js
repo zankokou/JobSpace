@@ -8,7 +8,10 @@ var connection = require('../config/connection')
 // Import the model (burger.js) to use its database functions.
 var job = require("../models/job.js");
 
-// Create all our routes and set up logic within those routes where required.
+router.get("/", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'loginScreen.html'));
+});
+
 router.get("/jobs", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'jobsScreen.html'));
 });
@@ -25,6 +28,13 @@ router.get("/edit/:id", function(req, res) {
 /****************
  * API ROUTES 
  ***************/
+
+// router.get('/api/job')
+router.get("/api/jobs", function(req, res) {
+  job.selectAll(function(data) {
+    res.json(data);
+  })
+})
 
 router.post("/api/job", function(req, res) {
   job.insertOne([
