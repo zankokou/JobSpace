@@ -67,12 +67,12 @@ router.put("/api/job/:id", function(req, res) {
     primary_contact_email: req.body.primary_contact_email, primary_contact_phone: req.body.primary_contact_phone,
     salary: req.body.salary, notes: req.body.notes, stage: req.body.stage  
   }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
+    // if (result.changedRows == 0) {
+    //   // If no rows were changed, then the ID must not exist, so 404
+    //   return res.status(404).end();
+    // } else {
       res.status(200).end();
-    }
+    // }
   });
 });
 
