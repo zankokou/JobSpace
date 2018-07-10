@@ -5,7 +5,7 @@ var path = require('path')
 
 var connection = require('../config/connection')
 
-// Import the model (burger.js) to use its database functions.
+// Import the model (job.js) to use its database functions.
 var job = require("../models/job.js");
 
 router.get("/", function(req, res) {
