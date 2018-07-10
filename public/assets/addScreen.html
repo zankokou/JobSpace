@@ -1,4 +1,4 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,28 +6,61 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="/js/addScreen.js"></script>
+
   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- <script src="./addScreen.js"></script> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1> THis is going to be our add/edit job sceren!!!!</h1>
+  <div id="error"></div>
+  Company *<br>
+  <input type="text" id="company" class="input" name="company" value="">
+  <br><br>
+  Location<br>
+  <input type="text" id="location" class="input" name="location" value="">
+  <br><br>
+  Title *<br>
+  <input type="text" id="title" class="input" name="title" value="">
+  <br><br>
+  Description<br>
+  <input type="text" id="description" class="input" name="description" value="">
+  <br><br>
+  Company link<br>
+  <input type="text" id="company_link" class="input" name="company_link" value="">
+  <br><br>
+  Posting link<br>
+  <input type="text" id="posting_link" class="input" name="posting_link" value="">
+  <br><br>
+  Primary contact<br>
+  name:<br>
+  <input type="text" id="primary_contact_name" class="input" name="primary_contact_name" value="">
+  <br>position:<br>
+  <input type="text" id="primary_contact_position" class="input" name="primary_contact_position" value="">
+  <br>email:<br>
+  <input type="text" id="primary_contact_email" class="input" name="primary_contact_email" value="">
+  <br>phone:<br>
+  <input type="text" id="primary_contact_phone" class="input" name="primary_contact_phone" value="">
+  <br><br>
+  salary<br>
+  <input type="text" id="salary" class="input" name="salary" value="">
+  <br><br>
+  notes<br>
+  <input type="text" id="notes" class="input" name="notes" value="">
+  <br><br>
+  stage<br>
+  <select id="stage" class="input" name='stage'>
+    <option value="applied">applied</option>
+    <option value="phone interviewed">phone interviewed</option>
+    <option value="in person interviewed">in person interviewed</option>
+    <option value="offered">offered</option>
+    <option value="archived">archived</option>
+  </select>
+  <br><br>
+  <button id='submit'>submit</button>
 
-    <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p>...</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-      </div>
-
-
-
-<script>
-$(document).ready(function(){
-    console.log('ready to do ajax calls to hit up routes and grab some data!!!');
-})
-</script>
 </body>
 </html>

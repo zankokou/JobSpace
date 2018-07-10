@@ -6,7 +6,7 @@ CREATE DATABASE find_job;
 USE find_job;
 
 CREATE TABLE jobs (
-  id INT PRIMARY KEY,  
+  id INT AUTO_INCREMENT NOT NULL,  
   company VARCHAR(100) NOT NULL,
   location TEXT,
   title VARCHAR(100) NOT NULL,
@@ -19,11 +19,13 @@ CREATE TABLE jobs (
   primary_contact_phone VARCHAR(25),
   salary INT,
   notes TEXT,
-  stage VARCHAR(100) NOT NULL
+  stage VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id)
+
 );
 
 CREATE TABLE events (
-  id INT PRIMARY KEY,
+  id INT AUTO_INCREMENT,
   job_id INT NOT NULL,
   event_time DATETIME NOT NULL,
   location TEXT,
@@ -33,5 +35,6 @@ CREATE TABLE events (
   contact_position VARCHAR(100),
   contact_email VARCHAR(256),
   contact_phone VARCHAR(25),
-  FOREIGN KEY (job_id) REFERENCES jobs(id)
+  FOREIGN KEY (job_id) REFERENCES jobs(id),
+  PRIMARY KEY (id)
 );
