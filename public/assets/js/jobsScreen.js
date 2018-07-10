@@ -90,8 +90,7 @@ $(document).ready(function(){
     var $newInputRow = $(
       [
         "<div class='list'>",
-        job.company, ". ",
-        job.title, "  ",
+        'COMPANY: ', job.company, " TITLE: ",job.title, "  ",
         // "<button class='delete btn btn-danger'>x</button>",
         "</div>",
         // "<input type='text' class='edit' style='display: none;'>",
