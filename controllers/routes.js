@@ -62,7 +62,7 @@ router.put("/api/job/:id", function(req, res) {
 
   job.updateOne({ 
     company: req.body.company, location: req.body.location, title: req.body.title,
-    description: req.body.description, company: req.body.company_link, posting_link: req.body.posting_link,
+    description: req.body.description, company_link: req.body.company_link, posting_link: req.body.posting_link,
     primary_contact_name: req.body.primary_contact_name, primary_contact_position: req.body.primary_contact_position,
     primary_contact_email: req.body.primary_contact_email, primary_contact_phone: req.body.primary_contact_phone,
     salary: req.body.salary, notes: req.body.notes, stage: req.body.stage  

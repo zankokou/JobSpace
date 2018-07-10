@@ -16,6 +16,17 @@ $(document).ready(function(){
     var $offeredContainer = $("#offered-container");
     var $archivedContainer = $("#archived-container");
   
+    $(document).on("click", ".edit", editJob);
+
+        // $(document).on("click", ".complete", toggleComplete);
+
+    function editJob(event) {
+      event.stopPropagation();
+      var job = $(this).attr("id");
+      console.log(job);
+      location.pathname = `/edit/${job}`;
+
+    }
     // // Adding event listeners for deleting, editing, and adding todos
     // $(document).on("click", "button.delete", deleteTodo);
     // $(document).on("click", ".complete", toggleComplete);
@@ -94,12 +105,12 @@ $(document).ready(function(){
         // "<button class='delete btn btn-danger'>x</button>",
         "</div>",
         // "<input type='text' class='edit' style='display: none;'>",
-        // "<button class='complete btn btn-primary'>✓</button>",
+        `<button class='edit btn btn-primary' id='${job.id}'>✓</button>`,
         // "</li>"
       ].join("")
     );
 
-    // $newInputRow.find("button.delete").data("id", todo.id);
+    $newInputRow.find("button.edit").data("id", job.id);
     // $newInputRow.find("input.edit").css("display", "none");
     $newInputRow.data("job", job);
     // if (todo.complete) {
