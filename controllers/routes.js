@@ -10,14 +10,21 @@ var job = require("../models/job.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/jobs", function(req, res) {
-
-  console.log('this is the __dirname!!!', __dirname);
   res.sendFile(path.join(__dirname, '../public/assets/', 'jobsScreen.html'));
 });
 
 router.get("/edit", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
 });
+
+router.get("/edit/:id", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
+});
+
+
+/****************
+ * API ROUTES 
+ ***************/
 
 router.post("/api/job", function(req, res) {
   job.insertOne([
@@ -34,6 +41,28 @@ router.post("/api/job", function(req, res) {
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
+  });
+});
+
+// Create router.put function for update one
+router.put("/api/job/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  job.updateOne({ 
+    company: req.body.company, location: req.body.location, title: req.body.title,
+    description: req.body.description, company: req.body.company_link, posting_link: req.body.posting_link,
+    primary_contact_name: req.body.primary_contact_name, primary_contact_position: req.body.primary_contact_position,
+    primary_contact_email: req.body.primary_contact_email, primary_contact_phone: req.body.primary_contact_phone,
+    salary: req.body.salary, notes: req.body.notes, stage: req.body.stage  
+  }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   });
 });
 
