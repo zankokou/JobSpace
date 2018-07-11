@@ -27,10 +27,9 @@
 }
 
 #sidebar-wrapper:hover .list-text {
-  transition: display inline 2s;
   display: inline;
   position: absolute;
-  transition-delay: 5s;
+
 }
 
 /* Sidebar */
@@ -66,12 +65,16 @@
 /* Change the width of the sidebar to display */
 
 #wrapper.menuDisplayed #sidebar-wrapper {
-  width: 250px;
+  width: 200px;
   transition: 0.5s;
 }
 
+#wrapper.menuDisplayed .content {
+  width: 360px;
+}
+
 #wrapper.menuDisplayed #page-content-wrapper {
-  padding-left: 250px;
+  padding-left: 200px;
   transition: 0.5s;
 }
 
