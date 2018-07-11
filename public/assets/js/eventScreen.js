@@ -1,13 +1,13 @@
 $(document).ready(function(){
-    let id = Number(location.pathname.split('/')[2]);
-    let jobId = Number(location.pathname.split('/')[3]);
-    if (!isNaN(jobId)) {
-        $.ajax("/api/job/"+id).then(function(res) {
-            for (var key in res[0]) {
-                $(`#${key}`).val(res[0][key]);
-            }
-        });
-    }
+    // let id = Number(location.pathname.split('/')[2]);
+    // let jobId = Number(location.pathname.split('/')[3]);
+    // if (!isNaN(jobId)) {
+    //     $.ajax("/api/job/"+id).then(function(res) {
+    //         for (var key in res[0]) {
+    //             $(`#${key}`).val(res[0][key]);
+    //         }
+    //     });
+    // }
 
     $("#submit").click(function(){
         let newJob = {};

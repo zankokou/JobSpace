@@ -8,10 +8,10 @@ $(document).ready(function(){
         });
 
         $('#events-section').css('display', 'block');
-        $.ajax("/api/event/"+id).then(function(res) {
+        // $.ajax("/api/event/"+id).then(function(res) {
 
-            console.log(res);
-        });
+        //     console.log(res);
+        // });
     }
 
     $("#submit").click(function(){
