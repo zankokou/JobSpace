@@ -10,48 +10,96 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
 
     <!-- Latest compiled and minified JavaScript -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/js/jobsScreen.js"></script>
+    <script src="./js/jobsScreen.js"></script>
 
-    <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
+    <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
 
 
 </head>
 
 <body>
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!-- <style="background-color: #e3f2fd;" -->
         <div class="container-fluid">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a class="navbar-brand" href="#">
-                    <img alt="Brand" height="30px" src="images/github.png">
-                </a>
+                    <span>
+                        <img alt="trackLogo" style="width:30px;height:30px" src="images/logo.png">
+                    </span>
+                    Job Tracker</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Account</a>
+                    </li>
+                    <li>
+                        <a href="#">Notification
+                            <span class="badge">42</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Schedule
+                            <span class="badge">2</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- <form class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control searchspace" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                    </div>
+                </form> -->
             </div>
         </div>
-        <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
+        <!-- <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a> -->
 
     </nav>
 
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" class="menu-toggle">
             <ul class="sidebar-nav">
-                <li>
-                    <a>One</a>
+                <li class="list-item">
+                    <i class="fas fa-angle-double-right"></i>
+
                 </li>
-                <li>
-                    <a>Two</a>
+                <li class="list-item">
+                    <a>
+                        <i class="fas fa-pen-fancy"></i>
+                        <h4 class="list-text">Jobs</h4>
+
+                    </a>
                 </li>
-                <li>
-                    <a>Three</a>
+                <li class="list-item">
+                    <a>
+                        <i class="far fa-calendar"></i> 
+                        <h4 class="list-text">Events</h4>
+                    </a>
                 </li>
-                <li>
-                    <a>Four</a>
-                </li>
+
+
             </ul>
         </div>
 
@@ -88,7 +136,13 @@
 
 
     </div>
-
+    <script>
+        $(".menu-toggle").hover(function (e) {
+            e.preventDefault();
+            $('#wrapper').toggleClass("menuDisplayed");
+            // $('.list-text').css("display", "block");
+        });
+    </script>
 </body>
 
 </html>
