@@ -22,14 +22,12 @@
 
 .list-text {
   display: none;
-  transition: display 2;
-  transition-delay: 2s;
+
 }
 
 #sidebar-wrapper:hover .list-text {
   display: inline;
   position: absolute;
-
 }
 
 /* Sidebar */
