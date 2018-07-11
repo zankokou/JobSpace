@@ -24,6 +24,14 @@ router.get("/edit/:id", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
 });
 
+router.get("/event", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
+});
+
+router.get("/event/:id", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
+});
+
 
 /****************
  * API ROUTES 
@@ -82,7 +90,27 @@ router.get("/api/job/:id", function(req, res) {
     });
 });
 
+router.post("/api/event", function(req, res) {
+  job.insertEvent([
+    "job_id", "event_time", "location", "name",
+    "notes", "contact_name", "contact_position",
+    "contact_email", "contact_phone"
+  ], [
+    req.body.job_id, req.body.event_time, req.body.location,
+    req.body.name, req.body.notes, req.body.contact_name,
+    req.body.contact_position, req.body.contact_email,
+    req.body.contact_phone
+  ], function(result) {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
+});
 
+router.get("/api/event/:id", function(req, res) {
+  job.findEvents(req.params.id, function(jobData) {
+      res.json(jobData);
+    });
+});
 
 // router.get('/grabAllJobsFromDB', function(req,res) {
 //   connection.query('SELECT * FROM JOBS').then(function(allJobsWeFound){
