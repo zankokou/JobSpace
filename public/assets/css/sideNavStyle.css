@@ -60,18 +60,20 @@
 
 /* Change the width of the sidebar to display */
 
+.sidebar-nav:hover #sidebar-wrapper {
+  width: 250px;
+  transition: 0.5s;
+}
+
 .sidebar-nav:hover .list-text {
   transition: display inline 2s;
   display: inline;
   transition-delay: 5s;
 }
-/* 
-#wrapper.menuDisplayed #sidebar-wrapper {
-  width: 250px;
-  transition: 0.5s;
-}
 
-#wrapper.menuDisplayed #page-content-wrapper {
+
+
+/* #wrapper.menuDisplayed #page-content-wrapper {
   padding-left: 250px;
   transition: 0.5s;
 }
