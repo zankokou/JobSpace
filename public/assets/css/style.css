@@ -1,14 +1,13 @@
-html {
-  background: lemonchiffon;
+/* html {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
-}
+} */
 
-#image {
+/* #image {
   height: 150px;
-}
+} */
 
-.what {
+/* .what {
   width: 50%;
   margin: auto;
   display: grid;
@@ -16,32 +15,43 @@ html {
   grid-template-rows: auto auto auto;
   justify-items: center;
 }
-
-.header {
+ */
+/* .header {
   grid-column: 1 / span 3;
   display: grid;
   justify-items: center;
-}
+} */
 
-button {
+/* button {
   font-size: 16px;
   padding: 2px 5px;
-}
+} */
 
-.addBurger {
+/* .addBurger {
   grid-column: 1 / span 3;
   display: grid;
   justify-items: center;
+} */
+ 
+.form-control {
+/* margin-top: 2%; */
+margin-bottom:2%;
 }
 
-input {
-  width: 150%;
-  height: 20px;
-  margin: 5px 0px;
-  text-align: center;
+#stage{
+  margin-bottom:2%;
 }
 
-.list {
+/* .list {
   margin: 10px 0px;
   height: 25px;
+} */
+
+#div-container{ 
+  margin-top: 5%;
+  margin-bottom: 5%
 }
+
+/* #primary-contact-container{
+
+} */

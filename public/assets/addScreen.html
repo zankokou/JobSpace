@@ -10,6 +10,7 @@
     crossorigin="anonymous"></script>
   <script src="/js/addScreen.js"></script>
 
+  <link rel="stylesheet" href="./css/style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
@@ -19,19 +20,11 @@
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
-    <!-- <style="background-color: #e3f2fd;" -->
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-          aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <a class="navbar-brand" href="#">
           <span>
-            <img alt="trackLogo" style="width:30px;height:30px" src="images/logo.png">
+            <img alt="trackLogo" style="width:30px;height:30px" src="./images/logo.png">
           </span>
           Job Tracker</a>
       </div>
@@ -55,112 +48,99 @@
             </a>
           </li>
         </ul>
-        <!-- <form class="navbar-form navbar-right">
-                    <div class="input-group">
-                        <input type="text" class="form-control searchspace" placeholder="Search for...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">Go!</button>
-                            </span>
-                    </div>
-                </form> -->
       </div>
     </div>
-    <!-- <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a> -->
-
   </nav>
-  <div class="container-fluid">
-    <div id="error"></div>
-    Company *
-    <br>
-    <input type="text" class="form-control" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the company name'">
-    <br>
-    <br> Location
-    <br>
-    <input type="text" class="form-control" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the address/location'">
-    <br>
-    <br> Title *
-    <br>
-    <input type="text" class="form-control" name="title" id="title" value="" placeholder="Enter the job title" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the job title'">
-    <br>
-    <br> Description
-    <br>
-    <input type="text" class="form-control" name="description" id="description" value="" placeholder="Enter the job description"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'">
-    <br>
-    <br> Company link
-    <br>
-    <input type="text" class="form-control" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
-    <br>
-    <br> Posting link
-    <br>
-    <input type="text" class="form-control" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
-    <br>
-    <br>
-    <hr>
-  </div>
-
-  <div class="container-fluid">
-    <br>
-    <h3 class="text-center">Primary contact</h3>
-    <br>
-    <br> name:
-    <br>
-    <input type="text" class="form-control" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
-    <br>position:
-    <br>
-    <input type="text" class="form-control" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
-    <br>email:
-    <br>
-    <input type="text" class="form-control" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Interviewer email'">
-    <br>phone:
-    <br>
-    <input type="text" class="form-control" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
-    <br>
-    <br> salary
-    <br>
-    <input type="text" class="form-control" name="salary" id="salary" value="" placeholder="Salary offererd" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Salary offered'">
-    <br>
-    <br> notes
-    <br>
-    <input type="text" class="form-control" name="notes" id="notes" value="" placeholder="notes" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'notes'">
-    <br>
-    <br> stage
-    <br>
-    <select id="stage">
-      <option value="applied">applied</option>
-      <option value="phone interviewed">phone interviewed</option>
-      <option value="in person interviewed">in person interviewed</option>
-      <option value="offered">offered</option>
-      <option value="archived">archived</option>
-    </select>
-    <br>
-    <br>
-    <div id='events-section' style='display:none;'>
-      <h3>EVENTS</h3>
-      <div id='events'>
-
-      </div>
-      <button id='add-event' class="btn btn-default">add event</button>
-    </div>
-    <br>
-    <br>
-
+  <div id="div-container">
     <div class="container-fluid">
-      <button type="button" class="btn btn-primary btn-lg col-md-12" id="submit">submit</button>
+      <div id="error"></div>
+      <p>Company *</p>
+
+      <input type="text" class="form-control" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Enter the company name'">
+      <p>Location</p>
+
+      <input type="text" class="form-control" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Enter the address/location'">
+      <p>Title *
+      </p>
+      <input type="text" class="form-control" name="title" id="title" value="" placeholder="Enter the job title" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Enter the job title'">
+      <p>Description</p>
+
+      <input type="text" class="form-control" name="description" id="description" value="" placeholder="Enter the job description"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'">
+      <p>Company link</p>
+
+      <input type="text" class="form-control" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
+      <p>Posting link</p>
+
+      <input type="text" class="form-control" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
+
+
+      <hr>
     </div>
-    <br>
-    <br>
+
+    <div class="container-fluid" id="primary-contact-container">
+
+      <h3 class="text-center">Primary contact</h3>
+
+      <p>name:</p>
+      <input type="text" class="form-control" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
+
+
+      <p>position:</p>
+      <input type="text" class="form-control" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
+
+
+      <p>email:</p>
+      <input type="text" class="form-control" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Interviewer email'">
+
+
+      <p>phone:</p>
+      <input type="text" class="form-control" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
+        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
+
+
+      <p>salary</p>
+      <input type="text" class="form-control" name="salary" id="salary" value="" placeholder="Salary offererd" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'Salary offered'">
+
+
+      <p>notes</p>
+      <input type="text" class="form-control" name="notes" id="notes" value="" placeholder="notes" onfocus="this.placeholder = ''"
+        onblur="this.placeholder = 'notes'">
+
+
+      <p>stage</p>
+      <select id="stage">
+        <option value="applied">applied</option>
+        <option value="phone interviewed">phone interviewed</option>
+        <option value="in person interviewed">in person interviewed</option>
+        <option value="offered">offered</option>
+        <option value="archived">archived</option>
+      </select>
+
+
+      <div id='events-section' style='display:none;'>
+        <h3>EVENTS</h3>
+        <div id='events'>
+
+        </div>
+        <button id='add-event' class="btn btn-default">add event</button>
+      </div>
+
+
+
+      <div class="container-fluid">
+        <button type="button" class="btn btn-primary btn-lg col-md-12" id="submit">submit</button>
+      </div>
+    </div>
   </div>
 </body>
 
