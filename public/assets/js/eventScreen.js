@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    // let id = Number(location.pathname.split('/')[2]);
+    let id = Number(location.pathname.split('/')[2]);
     // let jobId = Number(location.pathname.split('/')[3]);
     // if (!isNaN(jobId)) {
     //     $.ajax("/api/job/"+id).then(function(res) {
