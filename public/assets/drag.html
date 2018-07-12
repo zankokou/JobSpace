@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Side Nav Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jobsScreen.js"></script>
+    <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
+
+
+</head>
+<body>
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class="content col-lg-3 rounded">
+                        <h1>Applied</h1>
+                        <div>
+                                <ul id="applied-container" class="list-group sortable-connected">
+                                       <li>item2</li>
+                                       <li>item3</li>
+                                       <li>item4</li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="content col-lg-3 rounded">
+                        <h1>Interviewed</h1>
+                        <div>
+                                <ul id="interviewed-container" class="list-group sortable-connected">
+                                        <li class="list-group-item list-group-item-info">Cras justo odio</li>
+                                        <li class="list-group-item list-group-item-info">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item list-group-item-info">Morbi leo risus</li>
+                                        <li class="list-group-item list-group-item-info">Porta ac consectetur ac</li>
+                                        <li class="list-group-item list-group-item-info">Vestibulum at eros</li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="content col-lg-3 rounded">
+                        <h1>Offered</h1>
+                        <div>
+                                <ul id="offered-container" class="list-group sortable-connected">
+                                        <li class="list-group-item list-group-item-success">Cras justo odio</li>
+                                        <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item list-group-item-success">Morbi leo risus</li>
+                                        <li class="list-group-item list-group-item-success">Porta ac consectetur ac</li>
+                                        <li class="list-group-item list-group-item-success">Vestibulum at eros</li>
+                                    </ul>
+                        </div>
+                    </div>
+                    <div class="content col-lg-3 rounded">
+                        <h1>Archived</h1>
+                        <div id="archived-container">
+                                <li>item1</li>
+                                <li>item2</li>
+                                <li>item3</li>
+                        </div>
+                    </div>
+                </div>
+                <div class='row'>
+                    <button id='add-job'>Add a job</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function() {
+          $( "#interviewed-container, #offered-container, #applied-container" ).sortable({
+            connectWith: " .sortable-connected"
+          }).disableSelection();
+        } );
+        </script>
+</body>

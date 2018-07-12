@@ -17,7 +17,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/jobsScreen.js"></script>
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
 
 
@@ -111,11 +112,15 @@
                 <div class="row ">
                     <div class="content col-lg-3 rounded">
                         <h1>Applied</h1>
-                        <div id="applied-container"></div>
+                        <ul id="applied-container" class ="sortable">
+
+                        </ul>
                     </div>
                     <div class="content col-lg-3 rounded">
                         <h1>Interviewed</h1>
-                        <div id="interviewed-container"></div>
+                        <ul id="interviewed-container" class ="sortable">
+                            
+                        </ul>
                     </div>
                     <div class="content col-lg-3 rounded">
                         <h1>Offered</h1>
