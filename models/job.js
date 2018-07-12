@@ -31,7 +31,19 @@ var job = {
     orm.findOne("jobs", id, function(res) {
       cb(res);
     });
-  }
+  },
+
+  insertEvent: function(cols, vals, cb) {
+    orm.insertEvent("events", cols, vals, function(res) {
+      cb(res);
+    });
+  },
+
+  findEvents: function(id, cb) {
+    orm.findEvents(id, function(res) {
+      cb(res);
+    });
+  },
   
 };
 

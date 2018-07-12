@@ -130,13 +130,17 @@ $(document).ready(function(){
       });
     }
 
-    //Sortable
+    //Sortable --
     $( function() {
       console.log("workk");
-      $( "#applied-container, #interviewed-container" ).sortable({
+      $( "#applied-container, #interviewed-container, #archived-container, #offered-container" ).sortable({
         connectWith: ".sortable"
       }).disableSelection();
     } );
+
+
+
+
 });
 
 
