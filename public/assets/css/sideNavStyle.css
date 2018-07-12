@@ -52,12 +52,33 @@
 }
 
 .content {
+  background: #1f1f1f;
+  color: hotpink;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px gold solid;
+  margin: 0px 2px 10px 2px;
+  max-width: 400px;
+  text-decoration: underline dotted white;
+  text-decoration-skip: ink;
+}
+
+.list-content {
   background: #eceff1;
   text-align: center;
   border-radius: 10px;
   border: 1px black solid;
-  margin: 0px 2px 10px 30px;
+  margin: 0px 2px 10px 2px;
   max-width: 400px;
+}
+
+.list-content li {
+  list-style-type: none;
+  padding: 5px;
+} 
+
+.sortable {
+  padding: 0;
 }
 
 /* Change the width of the sidebar to display */

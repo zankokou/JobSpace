@@ -123,7 +123,7 @@ var orm = {
   },
 
   findEvents: function(id, cb) {
-    var queryString = "SELECT * FROM events WHERE id = " + id +  ";";
+    var queryString = "SELECT * FROM events WHERE job_id = " + id +  ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;

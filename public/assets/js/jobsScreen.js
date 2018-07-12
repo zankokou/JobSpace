@@ -100,13 +100,14 @@ $(document).ready(function(){
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        "<div class='list'>",
+        "<li>",
         'COMPANY: ', job.company, " TITLE: ",job.title, "  ",
         // "<button class='delete btn btn-danger'>x</button>",
-        "</div>",
+        
         // "<input type='text' class='edit' style='display: none;'>",
-        `<button class='edit btn btn-primary' id='${job.id}'>✓</button>`,
-        // "</li>"
+        `<span><button class='edit btn btn-primary' id='${job.id}'>✓</button></span>`,
+        "</li>"
+  
       ].join("")
     );
 
@@ -118,6 +119,7 @@ $(document).ready(function(){
     // }
     return $newInputRow;
   }
+
   
     // This function grabs todos from the database and updates the view
     function getJobs() {
@@ -127,5 +129,18 @@ $(document).ready(function(){
         initializeRows();
       });
     }
+
+    //Sortable --
+    $( function() {
+      console.log("workk");
+      $( "#applied-container, #interviewed-container, #archived-container, #offered-container" ).sortable({
+        connectWith: ".sortable"
+      }).disableSelection();
+    } );
+
+
+
+
 });
+
 
