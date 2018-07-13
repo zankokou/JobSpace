@@ -26,12 +26,54 @@
  <div>
 <div id ="container">
 <div id ="fade">
+    <div id ="timer"></div>
 <h1 class="textfont">Job  Tracker</h1>
-<a href="jobsScreen.html"><button id='login-button'>LOGIN </button></a>
+<div id ="fixme">
+    <form  method ="POST">
+<input type  ="text"  placeholder="username"id="login">
+<input type ="password" placeholder ="password" id= "login">
+    </form>
 </div>
+<a href="#"><button id='login-button'>LOGIN </button></a>
+<a href="#"> Register</a>
+</div>
+
 </div>
 </div>
 
+<script>
+    function formatDate(date) {
+        document.getElementById("timer").innerHTML ();
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year + ' '+ hour + ' '+ minute ; 
+}
+
+  var monthIndex = date.getMonth();
+
+
+ var maytext = monthIndex.appendChild(year);
+ var dayText = day.appendChild(monthIndex);
+ var hourmay = hour.appendChild(minute);
+
+var timer = document.getElementById("timer");
+
+timer.innerHTML("dayText " + "mayText " +"hourmay ");
+
+
+console.log(formatDate(new Date())); 
+</script>
 </body>
 
 </html>

@@ -66,3 +66,16 @@ margin-bottom:2%;
   margin-top: 1%;
   margin-bottom: 1%;
 } */
+#center{
+    margin-top :25%;
+    width: 50%;
+    margin-right:auto;
+    margin-left:auto;
+    padding: 10px;
+
+    
+}
+
+#login{
+  width:50%;
+}

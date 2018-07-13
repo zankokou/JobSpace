@@ -1,5 +1,5 @@
 var express = require("express");
-
+var passport = require('passport');
 var router = express.Router();
 var path = require('path')
 
@@ -7,11 +7,44 @@ var connection = require('../config/connection')
 
 // Import the model (job.js) to use its database functions.
 var job = require("../models/job.js");
-
-router.get("/", function(req, res) {
+//=========================
+router.get("/", function(req, res,next) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'loginScreen.html'));
 });
 
+router.post('/',
+passport.authenticate('local', {
+    successRedirect: '/users',
+    failureRedirect: '/'
+})
+);
+
+
+router.post('/', function(req,res,next) {
+  pg.connect(connectionString, function(err, client){
+
+    var query = client.query('INSERT INTO users (username, password) VALUES ($1, $2)', [request.body.username, request.body.password]);
+
+    query.on('error', function(err){
+      console.log(err);
+    })
+
+    query.on('end', function(){
+      response.sendStatus(200);
+      client.end();
+    })
+
+  })
+});
+
+router.get('/', function(req, res, next) {
+  res.send(req.isAuthenticated());
+});
+
+router.get('/', function(req, res, next) {
+  res.send(req.isAuthenticated());
+ });
+//////////////////////////=========
 router.get("/jobs", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'jobsScreen.html'));
 });
