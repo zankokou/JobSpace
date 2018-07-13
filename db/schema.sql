@@ -27,10 +27,10 @@ CREATE TABLE jobs (
 CREATE TABLE events (
   id INT AUTO_INCREMENT,
   job_id INT NOT NULL,
-  event_time DATETIME,
-  location TEXT,
+  event_time VARCHAR(256),
+  event_location TEXT,
   name VARCHAR(256),
-  notes TEXT,
+  event_notes TEXT,
   contact_name VARCHAR(100),
   contact_position VARCHAR(100),
   contact_email VARCHAR(256),
