@@ -32,8 +32,28 @@ $(document).ready(function(){
 
     function event2div (event, i) {
         return `NAME: ${event.name} <button type="button" class="editModal btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="${i}">edit</button>
-        <button class="deleteEvent">X</button>`;
+        <button class="deleteEvent" value="${i}">X</button>`;
     }
+
+    $('body').on('click', '.deleteEvent', function() {
+        let index = $(this).val();
+        let eventId = events[index]['id'];
+        console.log('event id', eventId);
+        currentEvent = index;
+        console.log(currentEvent);
+        events.splice(index, 1);
+        console.log(events);
+        // Send the DELETE request.
+        $.ajax("/api/events/" + eventId, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("deleted cat", id);
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+    });
 
     $('body').on('click', '.editModal', function() {
         let index = $(this).val();
@@ -61,22 +81,50 @@ $(document).ready(function(){
             type: type,
             data: newJob
         }).then(
-            function() {
-                console.log("created/edited new job");
-                location.pathname = '/jobs';
-            }
-        );
+            function(data) {
+                if (isNaN(id)) {
+                    console.log(data.id);
+                    id = data.id;
+                    console.log(id);
+                }
+                updateEvents(id);
+
+        });
     });
+
+    function updateEvents(id) {
+        for (i = 0; i < events.length; i++) {
+            if (isNaN(events[i].job_id)) {
+                events[i]['job_id'] = id;
+                console.log(events[i]);
+            }
+        }
+        for (i = 0; i < events.length; i++) {
+            if (!events[i].id) {
+            console.log(events[i]);
+            console.log('dude');
+            $.ajax('/api/event', {
+                type: 'POST',
+                data: events[i]
+            }).then(
+                function() {
+                    console.log("created/edited new event");
+                    // Reload the page to get the updated list
+                    // location.reload();
+                }
+            );
+            }
+        }
+        location.pathname = `/jobs`;
+    }
 
 
     $(".submit-event").click(function(){
         let newEvent = {};
-
-
-            newEvent['job_id'] = id;
-            $(".event-input").each(function() {
-                newEvent[$(this).attr('name')] = $(this).val().trim();
-            });
+        newEvent['job_id'] = id;
+        $(".event-input").each(function() {
+            newEvent[$(this).attr('name')] = $(this).val().trim();
+        });
         
         if (currentEvent) {
             events[currentEvent] = newEvent;
@@ -86,11 +134,6 @@ $(document).ready(function(){
         }
         renderEvents();
         console.log(events)
-
-        // let newDiv = $('<div>').html('hai');
-        // newDiv.data(newEvent);
-        // newDiv.addClass('eventDiv')
-        // $('#eventSection').append(newDiv);
     
     });
 
@@ -98,4 +141,18 @@ $(document).ready(function(){
         console.log($(this).data());
     });
 
-})
+    $(".delete-cat").on("click", function(event) {
+        var id = $(this).data("id");
+    
+        // Send the DELETE request.
+        $.ajax("/api/cats/" + id, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("deleted cat", id);
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+    });
+});
