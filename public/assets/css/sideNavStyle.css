@@ -34,11 +34,12 @@
 
 #sidebar-wrapper {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   width: 50px;
+  padding-top: 20px;
   height: 100%;
   overflow-y: hidden;
-  background: #2c3e50;
+  background: #333;
 }
 
 /* Main Content */
