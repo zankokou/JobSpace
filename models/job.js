@@ -21,11 +21,11 @@ var job = {
     });
   },
 
-  delete: function(condition, cb) {
-    orm.delete("jobs", condition, function(res) {
-      cb(res);
-    });
-  },
+  // delete: function(condition, cb) {
+  //   orm.delete("jobs", condition, function(res) {
+  //     cb(res);
+  //   });
+  // },
 
   findOne: function(id, cb) {
     orm.findOne("jobs", id, function(res) {
@@ -44,6 +44,12 @@ var job = {
       cb(res);
     });
   },
+
+  delete: function(condition, cb) {
+    orm.delete("events", condition, function(res) {
+      cb(res);
+    });
+  }
   
 };
 
