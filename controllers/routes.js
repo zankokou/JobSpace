@@ -79,7 +79,8 @@ router.put("/api/job/:id", function(req, res) {
     //   // If no rows were changed, then the ID must not exist, so 404
     //   return res.status(404).end();
     // } else {
-      res.status(200).end();
+    res.json({id: req.body.id})
+      // res.status(200).end();
     // }
   });
 });
@@ -106,10 +107,39 @@ router.post("/api/event", function(req, res) {
   });
 });
 
-router.get("/api/event/:id", function(req, res) {
+router.get(`/api/event/:id`, function(req, res) {
   job.findEvents(req.params.id, function(jobData) {
       res.json(jobData);
     });
+});
+
+router.put("/api/job/:id/events", function(req, res) {
+  router.get(`/api/event/${req.params.id}`).then(function(res) {
+    for (i = 0; i < res.length; i++) {
+      events.push(res[i]);
+  }
+  if (events.length > 0) {
+     renderEvents();
+  } 
+  console.log(events);
+});
+  // let dude = getEvents(req.params.id);
+  // job.findEvents(req.params.id, function(jobData) {
+  //     res.json(jobData);
+  //   });
+});
+
+router.delete("/api/events/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+
+  job.delete(condition, function(result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
 });
 
 // router.get('/grabAllJobsFromDB', function(req,res) {
