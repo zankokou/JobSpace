@@ -10,21 +10,24 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="icon" 
-        type="image/png" 
-        href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png" />
+    <link rel="icon" type="image/png" href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png"
+    />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/jobsScreen.js"></script>
     <!-- drag and drop -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
     <link rel="stylesheet" media="screen" href="./css/modal.css">
+    <!-- Latest compiled and minified JavaScript -->
+
 
 
 </head>
@@ -107,13 +110,14 @@
                 </li>
 
                 <li class="list-item">
-                    <a href="#"id='add-job'>
+                    <a href="#" id='add-job'>
                         <i class="fas fa-plus-circle"></i>
                         <h4 class="list-text">New</h4>
                     </a>
                 </li>
 
             </ul>
+
         </div>
 
 
@@ -125,9 +129,9 @@
                         <div class="content rounded">
                             <h1>Applied</h1>
                         </div>
-                        
+
                         <div class="list-content">
-                            <ul id="applied-container" class ="sortable">
+                            <ul id="applied-container" class="sortable">
                             </ul>
                         </div>
                     </div>
@@ -137,7 +141,7 @@
                             <h1>Interviewed</h1>
                         </div>
                         <div class="list-content">
-                            <ul id="interviewed-container" class ="sortable"> 
+                            <ul id="interviewed-container" class="sortable">
                             </ul>
                         </div>
                     </div>
@@ -147,7 +151,7 @@
                             <h1>Offered</h1>
                         </div>
                         <div class="list-content">
-                            <ul id="offered-container" class ="sortable">
+                            <ul id="offered-container" class="sortable">
                             </ul>
                         </div>
                     </div>
@@ -155,9 +159,10 @@
                     <div class="col-md-3 col-lg-3">
                         <div class="content rounded">
                             <h1>Archived</h1>
+
                         </div>
                         <div class="list-content">
-                            <ul id="archived-container" class ="sortable">
+                            <ul id="archived-container" class="sortable">
                             </ul>
                         </div>
                     </div>
@@ -167,7 +172,23 @@
                 </div> -->
             </div>
         </div>
-
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Basic Modal</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Modal Body</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -178,7 +199,18 @@
             e.preventDefault();
             $('#wrapper').toggleClass("menuDisplayed");
         });
+
+        $(function () {
+            var $header = $('#basicModal .modal-header'),
+                $body = $('#basicModal .modal-body'),
+                $footer = $('#basicModal .modal-footer');
+
+
+            $header.html("<h4 class='modal-title'>Injected Title</h4>")
+        });
     </script>
+
+
 </body>
 
 </html>

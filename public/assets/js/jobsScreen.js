@@ -100,7 +100,7 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        "<li class='btn list-modal'>",
+        "<li  id='to-do' class='btn list-modal' data-toggle='modal' data-target='#basicModal'>",
         'COMPANY: ', job.company, "<br>", " TITLE: ", job.title, "  ",
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
@@ -138,7 +138,44 @@ $(document).ready(function () {
     }).disableSelection();
   });
 
+  // $("#applied-container").sortable({
+  //   item:'#applied-container',
+  //   stop: function(event, ui){
+  //     alert("New Position: " + ui.item.index());
+  //     console.log('newPosition');
+  //   }
+  // });
+
+  // $("#offered-container").sortable({
+  //   start:
+  //   item:'#offered-container',
+  //   stop: function(event, ui){
+  //     alert("New Position: " + ui.item.index());
+  //     console.log('newPosition');
+  //   }
+  // });
+
 
   //click on jobs to open modal
+
+  // $('.list-modal').click(function () {
+
+
+  //   // e.preventDefault();
+  //   // var $this = $(this);
+  //   // var fileName = $(this).data("file");
+  //   // $("#basicModal").data("fileName", fileName).modal("toggle", $this);
+
+  // });
+
+  // $("#basicModal").on("shown.bs.modal", function (e) {
+  //   //data-fileName attribute associated with the modal added in the click event of the button
+  //   // alert($(this).data("fileName"));
+  //   //my data-file associated with the button 
+  //   alert($(e.relatedTarget).data("file"));
+
+  // })
+
+
 
 });
