@@ -39,8 +39,8 @@ var job = {
     });
   },
 
-  findEvents: function(cb) {
-    orm.findEvents("jobs", function(res) {
+  findEvents: function(id, cb) {
+    orm.findEvents(id, function(res) {
       cb(res);
     });
   },

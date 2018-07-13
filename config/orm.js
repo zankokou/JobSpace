@@ -122,15 +122,15 @@ var orm = {
     });
   },
 
-  findEvents: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+  findEvents: function(id, cb) {
+    var queryString = "SELECT * FROM events WHERE job_id = " + id +  ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
-  },
+  }
   // delete: function(table, condition, cb) {
   //   var queryString = "DELETE FROM " + table;
   //   queryString += " WHERE ";
