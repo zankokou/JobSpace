@@ -4,12 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Side Nav Profile</title>
+    <title>Jobs Tracker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <link rel="icon" 
+        type="image/png" 
+        href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
 
@@ -17,8 +20,11 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="./js/jobsScreen.js"></script>
-
+    <!-- drag and drop -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
+    <link rel="stylesheet" media="screen" href="./css/modal.css">
 
 
 </head>
@@ -83,52 +89,82 @@
             <ul class="sidebar-nav">
                 <li class="list-item">
                     <i class="fas fa-angle-double-right"></i>
+                    <h4 class="list-text">Menu</h4>
 
                 </li>
                 <li class="list-item">
-                    <a>
+                    <a href="#">
                         <i class="fas fa-pen-fancy"></i>
                         <h4 class="list-text">Jobs</h4>
 
                     </a>
                 </li>
                 <li class="list-item">
-                    <a>
-                        <i class="far fa-calendar"></i> 
+                    <a href="#">
+                        <i class="far fa-calendar"></i>
                         <h4 class="list-text">Events</h4>
                     </a>
                 </li>
 
+                <li class="list-item">
+                    <a href="#"id='add-job'>
+                        <i class="fas fa-plus-circle"></i>
+                        <h4 class="list-text">New</h4>
+                    </a>
+                </li>
 
             </ul>
         </div>
 
 
-
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <div class="row ">
-                    <div class="content col-lg-3 rounded">
-                        <h1>Applied</h1>
-                        <div id="applied-container"></div>
+                <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <div class="content rounded">
+                            <h1>Applied</h1>
+                        </div>
+                        
+                        <div class="list-content">
+                            <ul id="applied-container" class ="sortable">
+                            </ul>
+                        </div>
                     </div>
-                    <div class="content col-lg-3 rounded">
-                        <h1>Interviewed</h1>
-                        <div id="interviewed-container"></div>
+
+                    <div class="col-md-3 col-lg-3">
+                        <div class="content rounded">
+                            <h1>Interviewed</h1>
+                        </div>
+                        <div class="list-content">
+                            <ul id="interviewed-container" class ="sortable"> 
+                            </ul>
+                        </div>
                     </div>
-                    <div class="content col-lg-3 rounded">
-                        <h1>Offered</h1>
-                        <div id="offered-container"></div>
+
+                    <div class="col-md-3 col-lg-3">
+                        <div class="content rounded">
+                            <h1>Offered</h1>
+                        </div>
+                        <div class="list-content">
+                            <ul id="offered-container" class ="sortable">
+                            </ul>
+                        </div>
                     </div>
-                    <div class="content col-lg-3 rounded">
-                        <h1>Archived</h1>
-                        <div id="archived-container"></div>
+
+                    <div class="col-md-3 col-lg-3">
+                        <div class="content rounded">
+                            <h1>Archived</h1>
+                        </div>
+                        <div class="list-content">
+                            <ul id="archived-container" class ="sortable">
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class='row'>
+                <!-- <div class='row'>
                     <button id='add-job'>Add a job</button>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -136,11 +172,11 @@
 
 
     </div>
+
     <script>
         $(".menu-toggle").hover(function (e) {
             e.preventDefault();
             $('#wrapper').toggleClass("menuDisplayed");
-            // $('.list-text').css("display", "block");
         });
     </script>
 </body>
