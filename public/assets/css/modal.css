@@ -1,0 +1,23 @@
+.list-modal {
+    border: 1px solid black;
+    background-color: #333;
+    color: #bdbdbd ;
+    margin: 10px 0 0 0;
+    min-width: 250px;
+}
+
+.list-modal:hover {
+    color: #ffffff;
+    font-weight: 600;
+    /* min-width: 300px; */
+    padding: 10px 10px 10px 10px;
+}
+
+.sortable{
+    min-height: 50px;
+}
+
+.content{
+    color: #ff9800;
+    text-decoration: white underline;
+}
