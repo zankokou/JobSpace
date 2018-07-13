@@ -16,7 +16,7 @@
     <script src="/js/addScreen.js"></script>
 
   <!-- Latest compiled and minified CSS -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
 </head> -->
 
@@ -81,13 +81,13 @@
         <h3 class="text-center">Job Information</h3>
 
         <p>Company *</p>
-        <input type="text" class="form-control input company" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter the company name'">
+        <input type="text" class="form-control input company" name="company" id="company" value="" placeholder="Enter the company name"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company name'">
 
 
         <p>Location</p>
-        <input type="text" class="form-control input location" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter the address/location'">
+        <input type="text" class="form-control input location" name="location" id="location" value="" placeholder="Enter the location/address"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the address/location'">
 
 
         <p>Title *</p>
@@ -109,8 +109,11 @@
         <input type="text" class="form-control input posting_link" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
           onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
 
-  
- 
+          <div id="eventSection">Event</div>
+
+          <!-- Trigger the modal with a button -->
+          <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add event</button>        
+
 
       </div>
       <!--end for this container-fluid-->
@@ -123,23 +126,23 @@
         <h3 class="text-center">Primary contact</h3>
 
         <p>Name:</p>
-        <input type="text" class="form-control input primary_contact_name" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
+        <input type="text" class="form-control input primary_contact_name" name="primary_contact_name" id="primary_contact_name"
+          value="" placeholder="Interviewers name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
 
 
         <p>Position:</p>
-        <input type="text" class="form-control input primary_contact_position" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
+        <input type="text" class="form-control input primary_contact_position" name="primary_contact_position" id="primary_contact_position"
+          value="" placeholder="Interviewer postition" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
 
 
         <p>Email:</p>
-        <input type="text" class="form-control input primary_contact_email" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Interviewer email'">
+        <input type="text" class="form-control input primary_contact_email" name="primary_contact_email" value="" placeholder="Interviewer email"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer email'">
 
 
         <p>Phone:</p>
-        <input type="text" class="form-control input primary_contact_phone" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
+        <input type="text" class="form-control input primary_contact_phone" name="primary_contact_phone" id="primary_contact_phone"
+          value="" placeholder="Interviewer phone number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
 
 
         <p>Salary</p>
@@ -166,53 +169,52 @@
     <!--end for the second half-->
   </div>
   <!-- end #div-container -->
-  <div id="eventSection">EVENTS</div>
-
-      <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add event</button>
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add/Edit event</h4>
+          <h3 class="modal-title">Add/Edit event</h3>
         </div>
         <div class="modal-body">
           <div id="error"></div>
-          Event time*<br>
-          <input type="text" id="event_time" class="event-input" name="event_time" value="">
-          <br><br>
-          Location<br>
-          <input type="text" id="location" class="event-input" name="location" value="">
-          <br><br>
-          Name *<br>
-          <input type="text" id="name" class="event-input" name="name" value="">
-          <br><br>
-          Notes<br>
-          <input type="text" id="notes" class="event-input" name="notes" value="">
-          <br><br>
-          Contact name<br>
-          <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
-          <br><br>
-          Contact position<br>
-          <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
-          <br><br>
-          Contact email<br>
-          <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
-          <br><br>
-          Contact phone<br>
-          <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
-          <br><br>
+
+          <p>Event time*</p>
+          <input type="text" id="event_time" class="event-input form-control" name="event_time" value="">
+
+          <p>Location</p>
+          <input type="text" id="location" class="event-input form-control" name="location" value="">
+
+          <p>Name *</p>
+          <input type="text" id="name" class="event-input form-control" name="name" value="">
+
+          <p>Notes</p>
+          <textarea class="form-control" rows="3" name="notes" id="notes" value="" placeholder="" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = ''"></textarea>
+  
+          <p>Contact name</p>
+          <input type="text" id="contact_name" class="event-input form-control" name="contact_name" value="">
+
+          <p>Contact position</p>
+          <input type="text" id="contact_position" class="event-input form-control" name="contact_position" value="">
+
+          <p>Contact email</p>
+          <input type="text" id="contact_email" class="event-input form-control" name="contact_email" value="">
+
+          <p>Contact phone</p>
+          <input type="text" id="contact_phone" class="event-input form-control" name="contact_phone" value="">
+
         </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit event</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 
