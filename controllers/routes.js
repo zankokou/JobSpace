@@ -177,6 +177,20 @@ router.delete("/api/events/:id", function(req, res) {
   });
 });
 
+// update existing job
+router.put("/api/drag/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+ 
+  console.log("condition", condition);
+ 
+  job.dragJob({
+   stage: req.body.stage  
+  }, condition, function(result) {
+    // send back ID of updated job
+    res.json({id: req.body.id});
+  });
+ });
+
 // router.get('/grabAllJobsFromDB', function(req,res) {
 //   connection.query('SELECT * FROM JOBS').then(function(allJobsWeFound){
 //     console.log('these are all the jobs we found!!!!', allJobsWeFound);

@@ -21,7 +21,7 @@ CREATE TABLE jobs (
   notes TEXT,
   stage VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
-
+  
 );
 
 CREATE TABLE events (
