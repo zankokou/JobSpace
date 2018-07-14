@@ -55,6 +55,12 @@ var job = {
     orm.delete("events", condition, function(res) {
       cb(res);
     });
+  },
+
+  dragJob: function(objColVals, condition, cb) {
+    orm.dragJob("jobs", objColVals, condition, function(res) {
+      cb(res);
+    });
   }
   
 };

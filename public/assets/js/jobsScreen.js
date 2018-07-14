@@ -138,25 +138,59 @@ $(document).ready(function () {
     }).disableSelection();
   });
 
-
+  var data_id;
+  var prelocation;
   $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable({
-  //   start: function(e, ui) {
-  //     // creates a temporary attribute on the element with the old index
-  //     $(this).attr('data-previndex', ui.item.index());
-  //     console.log(ui);
-  // },
-    receive: function(e, ui) {
-      // gets the new and old index then removes the temporary attribute
-      
-      var newIndex = ui.item.index();
-      var oldIndex = $(this).attr('data-previndex');
-      alert('new index: ' + newIndex + ' oldIndex: ' + oldIndex);
-      $(this).removeAttr('data-previndex');
+    start: function(e, ui) {
+      // creates a temporary attribute on the element with the old id
+      // prelocation = $(this.children).attr('data-prelocate', this.id);
+      prelocation = $(this).val();
+      data_id = $(this.children).attr("data");
 
-      console.log(ui.item);
+      console.log("start point")
+      console.log("data:" + data_id);
+      console.log($(this.children));
       console.log('=====================');
-      console.log(ui.item.context.offsetParent);
-      console.log(ui.item.context.offsetParent.classList[2]);
+
+  },
+    receive: function(e, ui) {
+      let job_id = data_id;
+      // let old_position = prelocation.attr('data-prelocate');
+      let current_position = $(this).attr('data-stage');
+
+      //reset the old positon
+      $(this).removeAttr('data-prelocate');
+      data_id = 0;
+      prelocation = 0;
+      
+      
+      console.log("job-id: " + job_id);
+      // console.log("old: " + old_position);
+      console.log("new: " + current_position);
+      console.log('=====================');
+      // console.log(ui.item.context.offsetParent.classList[2]);
+      var newData = {
+        "stage": current_position
+      }
+      //Post to the server to handle the changes
+      $.ajax(`/api/drag/${job_id}`, {
+        type: "PUT",
+        data: newData
+      }).then(
+        function(data) {
+          console.log("its work !!");
+        }
+      );
+    // },
+    //     beforeSend: function() {
+    //         // Disable dragging
+    //         $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable('disable');
+    //     },
+    //     success: function(html) {
+    //         // Re-enable dragging
+    //         $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable('enable');
+    //     }
+    // });
   }
 });
   //click on jobs to open modal
