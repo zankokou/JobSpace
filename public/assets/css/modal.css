@@ -34,3 +34,18 @@
         /* max-width: 250px; */
     }
 }
+
+.modal-content {
+    background: #333;
+    color: white;
+}
+
+.modal-button {
+    background: #424242;
+    border: 1px solid #ff6d00 ;
+}
+
+.modal-button:hover {
+    background: #616161;
+    border: 1px solid #ff6d00 ;
+}

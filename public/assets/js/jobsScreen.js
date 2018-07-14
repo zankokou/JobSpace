@@ -157,9 +157,9 @@ $(document).ready(function () {
       var data = res[0];
       console.log(res)
       // console.log(data.company);
-      $header.html(`<h1 class='modal-title'>${data.company} - ${data.title}</h1>`)
+      $header.html(`<h1 class='modal-title'>${data.company} <br> ${data.title}</h1>`)
       $body.html(`<h4>${data.description}</h4><h2>Contact: ${data.primary_contact_name} <br> Phone: ${data.primary_contact_phone} <br> Salary: $${data.salary}`)
-      $footer.html(`<span><button class='edit btn btn-primary' id='${job}'>Edit</button></span>`)
+      $footer.html(`<span><button class='edit btn btn-info btn-lg modal-button' id='${job}'>Edit</button></span> <button type="button" class="btn btn-lg btn-info modal-button" data-dismiss="modal">Close</button>`)
       
     
   });
