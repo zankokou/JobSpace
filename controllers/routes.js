@@ -66,6 +66,10 @@ router.get("/event/:id", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
 });
 
+router.get("/account", function(req, res) {
+  res.sendFile(path.join(__dirname, '../public/assets/', 'accountScreen.html'));
+});
+
 
 /****************
  * API ROUTES 

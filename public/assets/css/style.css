@@ -104,3 +104,34 @@ button {
   margin-top: 1%;
   margin-bottom: 1%;
 } */
+
+#account-background {
+    color: #ff9800;
+    text-decoration: white underline;
+    background: black;
+    border-radius: 10px;
+    /* margin: 10px 5px 10px 5px; */
+    width: 20%;
+    height: 80px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    text-align: center;
+}
+
+#account-container {
+  background: #eceff1;
+  border-radius: 8%;
+  /* margin-top: 2%;   */
+  width: 800px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+hr {  
+  border-color: black;
+}
+
+#user-info p{
+  margin-top: 4%;
+  margin-bottom: 13%;
+}
