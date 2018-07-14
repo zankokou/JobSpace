@@ -205,8 +205,8 @@
                 $body = $('#basicModal .modal-body'),
                 $footer = $('#basicModal .modal-footer');
 
-
-            $header.html("<h4 class='modal-title'>Injected Title</h4>")
+            // injection
+            $header.html(`<h4 class='modal-title'>${job.company}</h4>`)
         });
     </script>
 

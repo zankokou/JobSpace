@@ -100,12 +100,12 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        "<li  id='to-do' class='btn list-modal' data-toggle='modal' data-target='#basicModal'>",
-        'COMPANY: ', job.company, "<br>", " TITLE: ", job.title, "  ",
+        `<li  id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal'>`,"<br>",
+         `<h4>${job.company}`, "<br>", job.title, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
         // "<input type='text' class='edit' style='display: none;'>",
-        `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
+        // `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
         "</li>"
 
       ].join("")
@@ -138,43 +138,34 @@ $(document).ready(function () {
     }).disableSelection();
   });
 
-  // $("#applied-container").sortable({
-  //   item:'#applied-container',
-  //   stop: function(event, ui){
-  //     alert("New Position: " + ui.item.index());
-  //     console.log('newPosition');
-  //   }
-  // });
 
-  // $("#offered-container").sortable({
-  //   start:
-  //   item:'#offered-container',
-  //   stop: function(event, ui){
-  //     alert("New Position: " + ui.item.index());
-  //     console.log('newPosition');
-  //   }
-  // });
+  //dynamic modal
+  var $header = $('#basicModal .modal-header'),
+    $body = $('#basicModal .modal-body'),
+    $footer = $('#basicModal .modal-footer');
+
+  $(document).on("click", ".list-modal", modalJob);
 
 
-  //click on jobs to open modal
 
-  // $('.list-modal').click(function () {
+  // modal injection
+  function modalJob(event) {
+    event.stopPropagation();
+    var job = $(this).attr("id");
+    console.log(job);
+    $.ajax("/api/job/"+job).then(function(res) {
+      var data = res[0];
+      console.log(res)
+      // console.log(data.company);
+      $header.html(`<h1 class='modal-title'>${data.company} - ${data.title}</h1>`)
+      $body.html(`<h4>${data.description}</h4><h2>Contact: ${data.primary_contact_name} <br> Phone: ${data.primary_contact_phone} <br> Salary: $${data.salary}`)
+      $footer.html(`<span><button class='edit btn btn-primary' id='${job}'>Edit</button></span>`)
+      
+    
+  });
+  }
 
 
-  //   // e.preventDefault();
-  //   // var $this = $(this);
-  //   // var fileName = $(this).data("file");
-  //   // $("#basicModal").data("fileName", fileName).modal("toggle", $this);
-
-  // });
-
-  // $("#basicModal").on("shown.bs.modal", function (e) {
-  //   //data-fileName attribute associated with the modal added in the click event of the button
-  //   // alert($(this).data("fileName"));
-  //   //my data-file associated with the button 
-  //   alert($(e.relatedTarget).data("file"));
-
-  // })
 
 
 
