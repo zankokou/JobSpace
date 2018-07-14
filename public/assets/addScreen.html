@@ -1,27 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<!-- <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-      <link rel="icon" 
-      type="image/png" 
-      href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png" />
-    <script src="/js/addScreen.js"></script>
-
-  <!-- Latest compiled and minified CSS -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-</head> -->
-
 <head>
-  <title>Bootstrap Example</title>
+  <title>Add/Edit job</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -29,160 +10,196 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="/js/addScreen.js"></script>
 
+  <!--linking the style.css-->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 </head>
-
-
 
 <body>
 
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          <img alt="Brand" height="30px" src="images/github.png">
+          <span>
+            <img alt="trackLogo" style="width:30px;height:30px" src="/images/logo.png">
+          </span>Job Tracker
         </a>
       </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/jobs">Dashboard</a>
+          </li>
+          <li>
+            <a href="#">Account</a>
+          </li>
+          <li>
+            <a href="#">Notification
+              <span class="badge">42</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">Schedule
+              <span class="badge">2</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a>
-
-
   </nav>
-  <div class="container-fluid">
-    <div id="error"></div>
-    Company *
-    <br>
-    <input type="text" class="input form-control" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the company name'">
-    <br>
-    <br> Location
-    <br>
-    <input type="text" class="input form-control" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the address/location'">
-    <br>
-    <br> Title *
-    <br>
-    <input type="text" class="input form-control" name="title" id="title" value="" placeholder="Enter the job title" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Enter the job title'">
-    <br>
-    <br> Description
-    <br>
-    <input type="text" class="input form-control" name="description" id="description" value="" placeholder="Enter the job description"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'">
-    <br>
-    <br> Company link
-    <br>
-    <input type="text" class="input form-control" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
-    <br>
-    <br> Posting link
-    <br>
-    <input type="text" class="input form-control" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
-    <br>
-    <br>
-    <hr>
-  </div>
 
-  <div class="container-fluid">
-    <br>
-    <h3 class="text-center">Primary contact</h3>
-    <br>
-    <br> name:
-    <br>
-    <input type="text" class="input form-control" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
-    <br>position:
-    <br>
-    <input type="text" class="input form-control" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
-    <br>email:
-    <br>
-    <input type="text" class="input form-control" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Interviewer email'">
-    <br>phone:
-    <br>
-    <input type="text" class="input form-control" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
-      onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
-    <br>
-    <br> salary
-    <br>
-    <input type="text" class="input form-control" name="salary" id="salary" value="" placeholder="Salary offererd" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Salary offered'">
-    <br>
-    <br> notes
-    <br>
-    <input type="text" class="input form-control" name="notes" id="notes" value="" placeholder="notes" onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'notes'">
-    <br>
-    <br> stage
-    <br>
-    <select id="stage" class="input" name="stage">
-      <option value="applied">applied</option>
-      <option value="phone interviewed">phone interviewed</option>
-      <option value="in person interviewed">in person interviewed</option>
-      <option value="offered">offered</option>
-      <option value="archived">archived</option>
-    </select>
-    <br>
-    <br>
-    
-    <h3>EVENTS</h3>
-    <div id="eventSection"></div>
+  <div id="div-container">
+    <div class="col-md-4">
+      <div class="container-fluid">
 
-      <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add event</button>
+        <div id="error"></div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add/Edit event</h4>
-        </div>
-        <div class="modal-body">
-          <div id="error"></div>
-          Event time*<br>
-          <input type="text" id="event_time" class="event-input" name="event_time" value="">
-          <br><br>
-          Location<br>
-          <input type="text" id="location" class="event-input" name="location" value="">
-          <br><br>
-          Name *<br>
-          <input type="text" id="name" class="event-input" name="name" value="">
-          <br><br>
-          Notes<br>
-          <input type="text" id="notes" class="event-input" name="notes" value="">
-          <br><br>
-          Contact name<br>
-          <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
-          <br><br>
-          Contact position<br>
-          <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
-          <br><br>
-          Contact email<br>
-          <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
-          <br><br>
-          Contact phone<br>
-          <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
-          <br><br>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit event</button>
+        <h3 class="text-center">Job Information</h3>
+
+        <p>Company *</p>
+        <input type="text" class="form-control input company" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter the company name'">
+
+
+        <p>Location</p>
+        <input type="text" class="form-control input location" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter the address/location'">
+
+
+        <p>Title *</p>
+        <input type="text" class="form-control input title" name="title" id="title" value="" placeholder="Enter the job title" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter the job title'">
+
+
+        <p>Description</p>
+        <textarea class="form-control input description" rows="3" name="description" id="description" value="" placeholder="Enter the job description"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'"></textarea>
+
+
+        <p>Company link</p>
+        <input type="text" class="form-control input company_link" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
+
+
+        <p>Posting link</p>
+        <input type="text" class="form-control input posting_link" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
+
+      </div>
+      <!--end for this container-fluid-->
+    </div>
+    <!--end for the first half-->
+
+    <div class="col-md-4">
+      <div class="container-fluid">
+
+        <h3 class="text-center">Primary contact</h3>
+
+        <p>Name:</p>
+        <input type="text" class="form-control input primary_contact_name" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
+
+        <p>Position:</p>
+        <input type="text" class="form-control input primary_contact_position" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
+
+        <p>Email:</p>
+        <input type="text" class="form-control input primary_contact_email" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Interviewer email'">
+
+        <p>Phone:</p>
+        <input type="text" class="form-control input primary_contact_phone" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
+
+        <p>Salary</p>
+        <input type="text" class="form-control input salary" name="salary" id="salary" value="" placeholder="Salary offererd" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Salary offered'">
+
+        <p>Notes</p>
+        <textarea class="form-control input notes" rows="3" name="notes" id="notes" value="" placeholder="Notes" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'notes'"></textarea>
+
+        <p>Stage</p>
+        <select id="stage" class="form-control input stage" name="stage">
+          <option value="applied">applied</option>
+          <option value="phone interviewed">phone interviewed</option>
+          <option value="in person interviewed">in person interviewed</option>
+          <option value="offered">offered</option>
+          <option value="archived">archived</option>
+        </select>
+
+      </div>
+      <!--end container-fluid for primary contact-->
+    </div>
+    <!--end for the second half-->
+
+
+    <div class="col-md-4">
+      <div class="container-fluid">
+
+      <div id="eventSection">EVENTS</div>
+
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="add-event btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add event</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add/Edit event</h4>
+              </div>
+              <div class="modal-body">
+                <div id="error"></div>
+                Event time*<br>
+                <input type="text" id="event_time" class="event-input" name="event_time" value="">
+                <br><br>
+                Location<br>
+                <input type="text" id="event_location" class="event-input" name="location" value="">
+                <br><br>
+                Name *<br>
+                <input type="text" id="name" class="event-input" name="name" value="">
+                <br><br>
+                Notes<br>
+                <input type="text" id="event_notes" class="event-input" name="notes" value="">
+                <br><br>
+                Contact name<br>
+                <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
+                <br><br>
+                Contact position<br>
+                <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
+                <br><br>
+                Contact email<br>
+                <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
+                <br><br>
+                Contact phone<br>
+                <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
+                <br><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit event</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
+      <!--end container-fluid for events-->
     </div>
+    <!--end for the last third-->
   </div>
+  <!-- end #div-container -->
 
-    <div class="container-fluid">
-      <button type="button" class="btn btn-default-success btn-lg col-md-12" id="submit">submit</button>
-    </div>
-    <br>
-    <br>
-  </div>
+<div class="container-fluid">
+  <button type="button" class="btn btn-primary btn-lg col-md-12" id="submit">submit</button>
+</div>
+
 </body>
 
 </html>

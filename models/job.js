@@ -21,11 +21,11 @@ var job = {
     });
   },
 
-  delete: function(condition, cb) {
-    orm.delete("jobs", condition, function(res) {
-      cb(res);
-    });
-  },
+  // delete: function(condition, cb) {
+  //   orm.delete("jobs", condition, function(res) {
+  //     cb(res);
+  //   });
+  // },
 
   findOne: function(id, cb) {
     orm.findOne("jobs", id, function(res) {
@@ -39,11 +39,23 @@ var job = {
     });
   },
 
+  updateEvent: function(objColVals, condition, cb) {
+    orm.updateEvent("events", objColVals, condition, function(res) {
+      cb(res);
+    });
+  },
+
   findEvents: function(id, cb) {
     orm.findEvents(id, function(res) {
       cb(res);
     });
   },
+
+  delete: function(condition, cb) {
+    orm.delete("events", condition, function(res) {
+      cb(res);
+    });
+  }
   
 };
 
