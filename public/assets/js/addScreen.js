@@ -38,10 +38,16 @@ $(document).ready(function(){
     $('body').on('click', '.deleteEvent', function() {
         let index = $(this).val();
         let eventId = events[index]['id'];
-        console.log('event id', eventId);
-        currentEvent = index;
-        console.log(currentEvent);
         events.splice(index, 1);
+        if (!eventId) {
+            location.reload();
+            return;
+        }
+        // let eventId = events[index]['id'];
+        console.log('event id', eventId);
+        // currentEvent = index;
+        // console.log(currentEvent);
+        // events.splice(index, 1);
         console.log(events);
         // Send the DELETE request.
         $.ajax("/api/events/" + eventId, {
@@ -93,27 +99,27 @@ $(document).ready(function(){
     });
 
     function updateEvents(id) {
+        // adding job_id to newly created events
         for (i = 0; i < events.length; i++) {
             if (isNaN(events[i].job_id)) {
                 events[i]['job_id'] = id;
                 console.log(events[i]);
             }
         }
+        // loop through events, put/post accordingly
         for (i = 0; i < events.length; i++) {
-            if (!events[i].id) {
-            console.log(events[i]);
-            console.log('dude');
+            let eventType = 'PUT';
+            // if event doesn't have id yet will be POST
+            if (!(events[i]['id'])) {
+                eventType = 'POST';    
+            }
             $.ajax('/api/event', {
-                type: 'POST',
+                type: eventType,
                 data: events[i]
             }).then(
                 function() {
                     console.log("created/edited new event");
-                    // Reload the page to get the updated list
-                    // location.reload();
-                }
-            );
-            }
+                });
         }
         location.pathname = `/jobs`;
     }
@@ -121,12 +127,16 @@ $(document).ready(function(){
 
     $(".submit-event").click(function(){
         let newEvent = {};
-        newEvent['job_id'] = id;
+        // newEvent['job_id'] = id;
         $(".event-input").each(function() {
             newEvent[$(this).attr('name')] = $(this).val().trim();
         });
         
         if (currentEvent) {
+            newEvent['job_id'] = id;
+            console.log(currentEvent);
+            console.log('current event id', events[currentEvent]['id'])
+            newEvent['id'] = events[currentEvent]['id'];
             events[currentEvent] = newEvent;
             currentEvent = null;
         } else {

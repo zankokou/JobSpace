@@ -39,6 +39,12 @@ var job = {
     });
   },
 
+  updateEvent: function(objColVals, condition, cb) {
+    orm.updateEvent("events", objColVals, condition, function(res) {
+      cb(res);
+    });
+  },
+
   findEvents: function(id, cb) {
     orm.findEvents(id, function(res) {
       cb(res);
