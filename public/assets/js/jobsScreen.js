@@ -100,7 +100,7 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        "<li class='btn list-modal'>",
+        `<li class='btn list-modal' data="${job.id}"`,
         'COMPANY: ', job.company, "<br>", " TITLE: ", job.title, "  ",
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
@@ -134,11 +134,31 @@ $(document).ready(function () {
   $(function () {
     console.log("workk");
     $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable({
-      connectWith: ".sortable"
+      connectWith: ".sortable",
     }).disableSelection();
   });
 
 
+  $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable({
+  //   start: function(e, ui) {
+  //     // creates a temporary attribute on the element with the old index
+  //     $(this).attr('data-previndex', ui.item.index());
+  //     console.log(ui);
+  // },
+    receive: function(e, ui) {
+      // gets the new and old index then removes the temporary attribute
+      
+      var newIndex = ui.item.index();
+      var oldIndex = $(this).attr('data-previndex');
+      alert('new index: ' + newIndex + ' oldIndex: ' + oldIndex);
+      $(this).removeAttr('data-previndex');
+
+      console.log(ui.item);
+      console.log('=====================');
+      console.log(ui.item.context.offsetParent);
+      console.log(ui.item.context.offsetParent.classList[2]);
+  }
+});
   //click on jobs to open modal
 
 });
