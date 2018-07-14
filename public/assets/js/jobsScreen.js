@@ -100,12 +100,12 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        `<li class='btn list-modal' data="${job.id}"`,
-        'COMPANY: ', job.company, "<br>", " TITLE: ", job.title, "  ",
+        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}" `,"<br>",
+         `<h4><b><u>${job.company}</u></b>`, "<br>", `<i>${job.title}`, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
         // "<input type='text' class='edit' style='display: none;'>",
-        `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
+        // `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
         "</li>"
 
       ].join("")
@@ -194,5 +194,30 @@ $(document).ready(function () {
   }
 });
   //click on jobs to open modal
+  //dynamic modal
+  var $header = $('#basicModal .modal-header'),
+    $body = $('#basicModal .modal-body'),
+    $footer = $('#basicModal .modal-footer');
+
+  $(document).on("click", ".list-modal", modalJob);
+
+
+
+  // modal injection
+  function modalJob(event) {
+    event.stopPropagation();
+    var job = $(this).attr("id");
+    console.log(job);
+    $.ajax("/api/job/"+job).then(function(res) {
+      var data = res[0];
+      console.log(res)
+      // console.log(data.company);
+      $header.html(`<h1 class='modal-title'>${data.company} <br> ${data.title}</h1>`)
+      $body.html(`<h4>${data.description}</h4><h2>Contact: ${data.primary_contact_name} <br> Phone: ${data.primary_contact_phone} <br> Salary: $${data.salary}`)
+      $footer.html(`<span><button class='edit btn btn-info btn-lg modal-button' id='${job}'>Edit</button></span> <button type="button" class="btn btn-lg btn-info modal-button" data-dismiss="modal">Close</button>`)
+      
+    
+  });
+  }
 
 });
