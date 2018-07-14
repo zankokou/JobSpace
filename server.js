@@ -5,7 +5,7 @@ var app = express();
 
 var path = require('path');
 
-app.use(express.static("public"));
+app.use(express.static("public/assets/"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
