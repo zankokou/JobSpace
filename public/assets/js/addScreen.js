@@ -2,25 +2,25 @@ $(document).ready(function(){
     let id = Number(location.pathname.split('/')[2]);
     let events = [];
     
+    // get & display job data if editing existing job
     if (!isNaN(id)) {
         $.ajax("/api/job/"+id).then(function(res) {
             for (var key in res[0]) {
                 $(`#${key}`).val(res[0][key]);
             }
         });
-
+        // pget & push existing events to events array
         $.ajax("/api/event/"+id).then(function(res) {
             for (i = 0; i < res.length; i++) {
                 events.push(res[i]);
             }
-           if (events.length > 0) {
-               renderEvents();
-           } 
+            if (events.length > 0) {
+                renderEvents();
+            } 
         });
     }
 
-    console.log(events);
-
+    // display events
     function renderEvents () {
         $('#eventSection').empty();
         for (i = 0; i < events.length; i++) {
@@ -28,13 +28,16 @@ $(document).ready(function(){
         }
     }
 
-    let currentEvent = null;
-
+    // create event div
     function event2div (event, i) {
-        return `NAME: ${event.name} <button type="button" class="editModal btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" value="${i}">edit</button>
+        return `NAME: ${event.name} <button type="button" class="editModal btn btn-info btn-lg"
+        data-toggle="modal" data-target="#myModal" value="${i}">edit</button>
         <button class="deleteEvent" value="${i}">X</button>`;
     }
 
+    let currentEvent = null;
+
+    // delete event in events array & database
     $('body').on('click', '.deleteEvent', function() {
         let index = $(this).val();
         let eventId = events[index]['id'];
@@ -43,32 +46,41 @@ $(document).ready(function(){
             location.reload();
             return;
         }
-        // let eventId = events[index]['id'];
-        console.log('event id', eventId);
-        // currentEvent = index;
-        // console.log(currentEvent);
-        // events.splice(index, 1);
-        console.log(events);
-        // Send the DELETE request.
         $.ajax("/api/events/" + eventId, {
           type: "DELETE"
         }).then(
           function() {
             console.log("deleted cat", id);
-            // Reload the page to get the updated list
+            // Reload the page to update events
             location.reload();
           }
         );
     });
 
+    // display events modal
+    // populate event data if editing event
     $('body').on('click', '.editModal', function() {
         let index = $(this).val();
         currentEvent = index;
+        console.log('current event', currentEvent);
         for (var key in events[index]) {
             $(`#${key}`).val(events[index][key]);
         }        
     });
+
+    $('.add-event').click(function() {
+        $(".event-input").each(function() {
+            $(this).val('');
+        });
+        // let index = $(this).val();
+        // currentEvent = index;
+        // console.log('current event', currentEvent);
+        // for (var key in events[index]) {
+        //     $(`#${key}`).val(events[index][key]);
+        // }        
+    });
     
+    // submit new job or job edit to database
     $("#submit").click(function(){
         let newJob = {};
 
@@ -82,7 +94,6 @@ $(document).ready(function(){
             url += "/"+id
             type = "PUT"
         }
-        // Send the POST request.
         $.ajax(url, {
             type: type,
             data: newJob
@@ -94,8 +105,7 @@ $(document).ready(function(){
                     console.log(id);
                 }
                 updateEvents(id);
-
-        });
+            });
     });
 
     function updateEvents(id) {
@@ -134,11 +144,10 @@ $(document).ready(function(){
         
         if (currentEvent) {
             newEvent['job_id'] = id;
-            console.log(currentEvent);
-            console.log('current event id', events[currentEvent]['id'])
             newEvent['id'] = events[currentEvent]['id'];
             events[currentEvent] = newEvent;
             currentEvent = null;
+            console.log('current event null', currentEvent)
         } else {
             events.push(newEvent);
         }
