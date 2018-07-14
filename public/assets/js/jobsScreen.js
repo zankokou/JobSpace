@@ -100,7 +100,7 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        `<li  id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal'>`,"<br>",
+        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal'>`,"<br>",
          `<h4>${job.company}`, "<br>", job.title, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
