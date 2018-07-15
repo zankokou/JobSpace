@@ -27,48 +27,11 @@ $(document).ready(function () {
     location.pathname = `/edit/${job}`;
 
   }
-  // // Adding event listeners for deleting, editing, and adding todos
-  // $(document).on("click", "button.delete", deleteTodo);
-  // $(document).on("click", ".complete", toggleComplete);
-  // $(document).on("click", ".todo-item", editTodo);
-  // $(document).on("keyup", ".todo-item", finishEdit);
-  // $(document).on("blur", ".todo-item", cancelEdit);
-  // $(document).on("click", "#addBurger", insertTodo);
-
-  // Our initial todos array
   var jobs = [];
 
-  // Getting todos from databa se when page loads
   getJobs();
 
-  // This function resets the todos displayed with new todos from the database
-  // function initializeRows() {
-  //   $todoContainer.empty();
-  //   $devouredContainer.empty();
-  //   $buttonContainer.empty();
-  //   var rowsToAdd = [];
-  //   var devouredRows = [];
-  //   var buttonRows = [];
-  //   for (var i = 0; i < todos.length; i++) {
 
-  //     if (todos[i].complete) {
-  //       devouredRows.push(createNewRow(todos[i]));
-  //     } else {
-  //       rowsToAdd.push(createNewRow(todos[i]));
-
-  //       var $newButtonRow = $(
-  //         [
-  //           "<div class='list'><button class='complete'>DEVOUR</button></div>"
-  //         ].join("")
-  //       );
-  //       $newButtonRow.data("todo", todos[i]);
-  //       buttonRows.push($newButtonRow);
-  //     }
-  //   }
-  //   $buttonContainer.prepend(buttonRows);
-  //   $todoContainer.prepend(rowsToAdd);
-  //   $devouredContainer.prepend(devouredRows);
-  // }
 
   function initializeRows() {
     $appliedContainer.empty();
@@ -101,7 +64,7 @@ $(document).ready(function () {
     var $newInputRow = $(
       [
         `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}" `,"<br>",
-         `<h4><b><u>${job.company}</u></b>`, "<br>", `<i>${job.title}`, "<br>", 
+         `<h4 id='job-name'><b><u>${job.company}</u></b></h4>`, "<br>", `<i>${job.title}`, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
         "<br>",
         // "<input type='text' class='edit' style='display: none;'>",
