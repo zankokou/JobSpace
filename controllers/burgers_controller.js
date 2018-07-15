@@ -20,10 +20,39 @@ router.get("/addAJob", function(req, res) {
 });
 
 
+
+
 // router.get('/grabAllJobsFromDB', function(req,res) {
 //   connection.query('SELECT * FROM JOBS').then(function(allJobsWeFound){
 //     console.log('these are all the jobs we found!!!!', allJobsWeFound);
 //   })
 // })
+
+var exports = module.exports = {}
+
+
+exports.signup = function(req,res){
+
+	res.render('signup'); 
+
+}
+
+exports.signin = function(req,res){
+
+	res.render('signin'); 
+
+}
+
+
+
+exports.logout = function(req,res){
+
+  req.session.destroy(function(err) {
+  res.redirect('/');
+  });
+
+}
+
+
 
 module.exports = router;

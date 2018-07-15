@@ -1,0 +1,91 @@
+!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+        <link rel="icon" 
+        type="image/png" 
+        href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/loginScreen.js"></script>
+
+    <!-- <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css"> -->
+
+
+</head>
+
+<body class="bg">
+ <div>
+<div id ="container">
+<div id ="fade">
+    <div id ="timer"></div>
+<h1 class="textfont">Job  Tracker</h1>
+<div id ="fixme">
+    <form  method ="POST">
+<input type  ="text"  placeholder="username"id="login">
+<input type ="password" placeholder ="password" id= "login">
+    </form>
+</div>
+<a href="#"><button id='login-button'>LOGIN </button></a>
+<a href="#"> Register</a>
+</div>
+
+</div>
+</div>
+
+<script>
+
+    console.log('helloooooooo from js')
+
+    var userDummy = {
+        username: 'tom@tom.com',
+        password: 'tom1234'
+    }
+
+    $.post("/login", userDummy, function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
+
+
+
+
+
+
+
+
+
+    function formatDate(date) {
+        document.getElementById("timer").innerHTML ();
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+  var hour = date.getHours();
+
+  var minute = date.getMinutes();
+  return day + ' ' + monthNames[monthIndex] + ' ' + year + ' '+ hour + ' '+ minute ; 
+}
+  var monthIndex = date.getMonth();
+ var maytext = monthIndex.appendChild(year);
+ var dayText = day.appendChild(monthIndex);
+ var hourmay = hour.appendChild(minute);
+var timer = document.getElementById("timer");
+timer.innerHTML("dayText " + "mayText " +"hourmay ");
+console.log(formatDate(new Date())); 
+</script>
+</body>
+
+</html>
