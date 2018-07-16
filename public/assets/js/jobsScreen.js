@@ -9,8 +9,6 @@ $(document).ready(function () {
     location.pathname = '/edit';
   });
 
-  // var $newItemInput = $("#burger");
-  // // Our new todos will go inside the todoContainer
   var $appliedContainer = $("#applied-container");
   var $interviewedContainer = $("#interviewed-container");
   var $offeredContainer = $("#offered-container");
@@ -18,21 +16,26 @@ $(document).ready(function () {
 
   $(document).on("click", ".edit", editJob);
 
-  // $(document).on("click", ".complete", toggleComplete);
 
   function editJob(event) {
     event.stopPropagation();
     var job = $(this).attr("id");
     console.log(job);
     location.pathname = `/edit/${job}`;
-
   }
+<<<<<<< HEAD
+=======
+  
+>>>>>>> dev
   var jobs = [];
 
   getJobs();
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> dev
   function initializeRows() {
     $appliedContainer.empty();
     $interviewedContainer.empty();
@@ -59,10 +62,10 @@ $(document).ready(function () {
     $archivedContainer.prepend(archivedArr);
   }
 
-  // This function constructs a todo-item row
   function createNewRow(job) {
     var $newInputRow = $(
       [
+<<<<<<< HEAD
         `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}" `,"<br>",
          `<h4 id='job-name'><b><u>${job.company}</u></b></h4>`, "<br>", `<i>${job.title}`, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
@@ -70,21 +73,20 @@ $(document).ready(function () {
         // "<input type='text' class='edit' style='display: none;'>",
         // `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
         "</li>"
+=======
+        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}"<br>
+        <h4><b><u>${job.company}</u></b><br><i>${job.title}<br><br></li>`
+>>>>>>> dev
 
       ].join("")
     );
 
     $newInputRow.find("button.edit").data("id", job.id);
-    // $newInputRow.find("input.edit").css("display", "none");
     $newInputRow.data("job", job);
-    // if (todo.complete) {
-    //   $newInputRow.find("span").css("text-decoration", "line-through");
-    // }
     return $newInputRow;
   }
 
 
-  // This function grabs todos from the database and updates the view
   function getJobs() {
     $.get("/api/jobs", function (data) {
       jobs = data;
@@ -144,23 +146,14 @@ $(document).ready(function () {
           console.log("its work !!");
         }
       );
-    // },
-    //     beforeSend: function() {
-    //         // Disable dragging
-    //         $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable('disable');
-    //     },
-    //     success: function(html) {
-    //         // Re-enable dragging
-    //         $("#applied-container, #interviewed-container, #archived-container, #offered-container").sortable('enable');
-    //     }
-    // });
   }
 });
+
   //click on jobs to open modal
   //dynamic modal
   var $header = $('#basicModal .modal-header'),
-    $body = $('#basicModal .modal-body'),
-    $footer = $('#basicModal .modal-footer');
+      $body = $('#basicModal .modal-body'),
+      $footer = $('#basicModal .modal-footer');
 
   $(document).on("click", ".list-modal", modalJob);
 
@@ -179,8 +172,7 @@ $(document).ready(function () {
       $body.html(`<h4>${data.description}</h4><h2>Contact: ${data.primary_contact_name} <br> Phone: ${data.primary_contact_phone} <br> Salary: $${data.salary}`)
       $footer.html(`<span><button class='edit btn btn-info btn-lg modal-button' id='${job}'>Edit</button></span> <button type="button" class="btn btn-lg btn-info modal-button" data-dismiss="modal">Close</button>`)
       
-    
-  });
+    });
   }
 
 });
