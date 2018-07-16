@@ -1,4 +1,12 @@
 $(document).ready(function(){
+
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+
+    // var moment = require('moment');
+    // moment().format();  
+
     let id = Number(location.pathname.split('/')[2]);
     let events = [];
     
@@ -41,9 +49,13 @@ $(document).ready(function(){
     $('body').on('click', '.deleteEvent', function() {
         let index = $(this).val();
         let eventId = events[index]['id'];
+        console.log(eventId);
         events.splice(index, 1);
+        $(this).parent().remove();
+
         if (!eventId) {
-            location.reload();
+
+            // location.reload();
             return;
         }
         $.ajax("/api/events/" + eventId, {
@@ -52,7 +64,7 @@ $(document).ready(function(){
           function() {
             console.log("deleted cat", id);
             // Reload the page to update events
-            location.reload();
+            // location.reload();
           }
         );
     });
@@ -71,13 +83,7 @@ $(document).ready(function(){
     $('.add-event').click(function() {
         $(".event-input").each(function() {
             $(this).val('');
-        });
-        // let index = $(this).val();
-        // currentEvent = index;
-        // console.log('current event', currentEvent);
-        // for (var key in events[index]) {
-        //     $(`#${key}`).val(events[index][key]);
-        // }        
+        });      
     });
     
     // submit new job or job edit to database
@@ -134,10 +140,9 @@ $(document).ready(function(){
         location.pathname = `/jobs`;
     }
 
-
+    // adds or updates event in events array
     $(".submit-event").click(function(){
         let newEvent = {};
-        // newEvent['job_id'] = id;
         $(".event-input").each(function() {
             newEvent[$(this).attr('name')] = $(this).val().trim();
         });
@@ -156,22 +161,9 @@ $(document).ready(function(){
     
     });
 
+    // logs events in events array
     $(".eventDiv").each(function() {
         console.log($(this).data());
     });
 
-    $(".delete-cat").on("click", function(event) {
-        var id = $(this).data("id");
-    
-        // Send the DELETE request.
-        $.ajax("/api/cats/" + id, {
-          type: "DELETE"
-        }).then(
-          function() {
-            console.log("deleted cat", id);
-            // Reload the page to get the updated list
-            location.reload();
-          }
-        );
-    });
 });
