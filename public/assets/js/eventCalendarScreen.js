@@ -1,71 +1,57 @@
 $(document).ready(function () {
-    $(function() {
 
         getEvents();
 
         function getEvents() {
             $.get("/api/events", function (data) {
-              console.log(data);
-              //   initializeRows();
+                populateEvents(data);
             });
-          }
+        }
+
+        function populateEvents(events) {
+            for (i = 0; i < events.length; i++) {
+                let eventObj = {
+                    title: events[i]['name'],
+                    start: events[i]['event_time'],
+                    description: `Location: ${events[i]['event_location']}\n<button href='/edit/${events[i]['job_id']}`
+                }
+                eventsArr.push(eventObj);
+            }
+            displayCalendar();
+        }
+
+        var eventsArr = [];
 
         // page is now ready, initialize the calendar...
-
-        $('#calendar').fullCalendar({
-        // put your options and callbacks here
-            header: {
-                left: 'today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay,listWeek'
-            },
-            footer: {
-                left: 'prev',
-                right: 'next'
-            },
-            validRange: {
-                start: '2018-06-01'
-            },
-            navLinks: true, // can click day/week names to navigate views
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events   
-            eventRender: function(eventObj, $el) {
-                $el.popover({
-                    title: eventObj.title,
-                    content: eventObj.description,
-                    trigger: 'hover',
-                    placement: 'bottom',
-                    container: 'body'
-                })
-            },
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: '2018-07-01',
-                    color: 'purple' // override!
+        function displayCalendar() {
+            $('#calendar').fullCalendar({
+            // put your options and callbacks here
+                header: {
+                    left: 'today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay,listWeek'
                 },
-                {
-                    title: 'doofus',
-                    start: '2018-07-16',
+                footer: {
+                    left: 'prev',
+                    right: 'next'
                 },
-                {
-                    title: 'Long Event',
-                    start: '2018-01-07',
-                    end: '2018-07-10',
-                    description: 'description for Long Event',
-                    color: 'green'
+                validRange: {
+                    start: '2018-06-01'
                 },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2018-07-09T16:00:00'
+                navLinks: true, // can click day/week names to navigate views
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events   
+                eventRender: function(eventObj, $el) {
+                    $el.popover({
+                        title: eventObj.title,
+                        content: eventObj.description,
+                        trigger: 'hover',
+                        placement: 'bottom',
+                        container: 'body'
+                    })
                 },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2018-07-16T16:00:00'
-                }
-              ]         
-        });
-    });
+                events: eventsArr    
+            });
+        }
+        
 });
