@@ -2,10 +2,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Event Calender</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
@@ -13,20 +10,28 @@
     />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
         crossorigin="anonymous">
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
-    <link rel="stylesheet" media="screen" href="/css/calendar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script> 
-    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+    <!-- linking the .js file along with this -->
+    <script src="#"></script>
+
+    <!--linking side nav css-->
+    <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
+
+    <!--linking the style.css-->
+    <link rel="stylesheet" href="./css/accountScreen.css">
+
+
 </head>
 
 <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <!-- <style="background-color: #e3f2fd;" -->
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -57,8 +62,6 @@
                 </ul>
             </div>
         </div>
-        <!-- <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a> -->
-
     </nav>
 
     <div id="wrapper">
@@ -95,25 +98,27 @@
             </ul>
 
         </div>
-
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div id='calendar'></div>
+        
+        <div class="container" id="account-background">
+            <h2>Account info</h2>
         </div>
-
+        
+        <div class="container" id="account-container">
+                <div id="account-info">
+                    <p><strong>Name:</strong> Gary SquarePants</p>
+                    <p><strong>Username:</strong> TheBigGdog</p>
+                    <p><strong>Age:</strong> 24</p>
+                    <p><strong>DOB:</strong> 7/16/1994</p>
+                    <p><strong>Email address:</strong> garbear@domain.com</p>
+                </div>
 
     </div>
-
-    <script>
-        $(".menu-toggle").hover(function (e) {
-            e.preventDefault();
-            $('#wrapper').toggleClass("menuDisplayed");
-        });
-    </script>
-    <script src="./js/eventCalendarScreen.js"></script>
-
-
 </body>
+<script>
+    $(".menu-toggle").hover(function (e) {
+        e.preventDefault();
+        $('#wrapper').toggleClass("menuDisplayed");
+    });
+</script>
 
 </html>

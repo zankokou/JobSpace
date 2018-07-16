@@ -84,6 +84,10 @@ button {
   margin-bottom: 2%;
 }
 
+hr {  
+  border-color: black;
+}
+
 .userInfo{
   margin: 5px 5px 0px -11px;
   width: 500px;
