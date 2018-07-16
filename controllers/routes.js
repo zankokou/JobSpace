@@ -63,7 +63,7 @@ router.get("/edit/:id", function(req, res) {
 // });
 
 router.get("/events", function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
+  res.sendFile(path.join(__dirname, '../public/assets/', 'eventCalendarScreen.html'));
 });
 
 

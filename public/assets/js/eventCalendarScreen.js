@@ -1,6 +1,15 @@
 $(document).ready(function () {
     $(function() {
 
+        getEvents();
+
+        function getEvents() {
+            $.get("/api/events", function (data) {
+              console.log(data);
+              //   initializeRows();
+            });
+          }
+
         // page is now ready, initialize the calendar...
 
         $('#calendar').fullCalendar({
@@ -34,6 +43,10 @@ $(document).ready(function () {
                     title: 'All Day Event',
                     start: '2018-07-01',
                     color: 'purple' // override!
+                },
+                {
+                    title: 'doofus',
+                    start: '2018-07-16',
                 },
                 {
                     title: 'Long Event',
