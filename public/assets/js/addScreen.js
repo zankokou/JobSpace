@@ -38,9 +38,9 @@ $(document).ready(function(){
 
     // create event div
     function event2div (event, i) {
-        return `NAME: ${event.name} <button type="button" class="editModal btn btn-info btn-lg"
-        data-toggle="modal" data-target="#myModal" value="${i}">edit</button>
-        <button class="deleteEvent" value="${i}">X</button>`;
+        return `<button type="button" class="editModal btn btn-info btn-lg "
+        data-toggle="modal" data-target="#myModal" value="${i}">Event: ${event.name}</button>
+        <button class="btn btn-danger deleteEvent" value="${i}">X</button>`;
     }
 
     let currentEvent = null;

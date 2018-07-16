@@ -2,33 +2,50 @@
 <html>
 
 <head>
-  <title>Add/Edit job</title>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Jobs Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./js/jobsScreen.js"></script>
+  <script src="/js/addScreen.js"></script>
+
+  <!-- drag and drop -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
   <script src="/js/bootstrap-datetimepicker.min.js"></script>
 
-  <script src="/js/addScreen.js"></script>
-
-  <!--linking the style.css-->
-  <link rel="stylesheet" href="/css/bootstrap-datetimepicker.min.css">
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- Latest compiled and minified CSS -->
+  <!-- <link rel="stylesheet" href="/css/style.css"> -->
+  <link rel="stylesheet" media="screen" href="/css/modal.css">
+  <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
+  <link rel="stylesheet" media="screen" href="/css/addScreen.css">
 </head>
 
 <body>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- <style="background-color: #e3f2fd;" -->
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/jobs">
           <span>
             <img alt="trackLogo" style="width:30px;height:30px" src="/images/logo.png">
-          </span>Job Tracker
-        </a>
+          </span>
+          JobSpace</a>
       </div>
 
       <div id="navbar" class="navbar-collapse collapse">
@@ -52,163 +69,275 @@
         </ul>
       </div>
     </div>
+
   </nav>
 
-  <div id="div-container">
-    <div class="col-md-4">
-      <div class="container-fluid">
+  <div id="wrapper">
 
-        <div id="error"></div>
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper" class="menu-toggle">
+      <ul class="sidebar-nav">
+        <li class="list-item">
+          <i class="fas fa-angle-double-right"></i>
+          <h4 class="list-text">Menu</h4>
 
-        <h3 class="text-center">Job Information</h3>
+        </li>
+        <li class="list-item">
+          <a href="/jobs">
+            <i class="fas fa-pen-fancy"></i>
+            <h4 class="list-text">Jobs</h4>
 
-        <p>Company *</p>
-        <input type="text" class="form-control input company" name="company" id="company" value="" placeholder="Enter the company name" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter the company name'">
+          </a>
+        </li>
+        <li class="list-item">
+          <a href="/events">
+            <i class="far fa-calendar"></i>
+            <h4 class="list-text">Events</h4>
+          </a>
+        </li>
 
+        <li class="list-item">
+          <a href="/edit" id='add-job'>
+            <i class="fas fa-plus-circle"></i>
+            <h4 class="list-text">New</h4>
+          </a>
+        </li>
 
-        <p>Location</p>
-        <input type="text" class="form-control input location" name="location" id="location" value="" placeholder="Enter the location/address" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter the address/location'">
+      </ul>
 
-
-        <p>Title *</p>
-        <input type="text" class="form-control input title" name="title" id="title" value="" placeholder="Enter the job title" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Enter the job title'">
-
-
-        <p>Description</p>
-        <textarea class="form-control input description" rows="3" name="description" id="description" value="" placeholder="Enter the job description"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'"></textarea>
-
-
-        <p>Company link</p>
-        <input type="text" class="form-control input company_link" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
-
-
-        <p>Posting link</p>
-        <input type="text" class="form-control input posting_link" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
-
-      </div>
-      <!--end for this container-fluid-->
     </div>
-    <!--end for the first half-->
 
-    <div class="col-md-4">
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
       <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 col-lg-4 applied job-content">
+            <div id="error"></div>
 
-        <h3 class="text-center">Primary contact</h3>
+            <h3 class="text-center">
+              <u>Job Information</u>
+            </h3>
 
-        <p>Name:</p>
-        <input type="text" class="form-control input primary_contact_name" name="primary_contact_name" id="primary_contact_name" value="" placeholder="Interviewers name"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
+            <h4>Title*</h4>
+            <input type="text" required class="form-control input title" name="title" id="title" value="" placeholder="Enter the job title"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job title'">
 
-        <p>Position:</p>
-        <input type="text" class="form-control input primary_contact_position" name="primary_contact_position" id="primary_contact_position" value="" placeholder="Interviewer postition"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
+            <h4>Company*</h4>
+            <input type="text" class="form-control input company" name="company" id="company" value="" placeholder="Enter the company name"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company name'">
 
-        <p>Email:</p>
-        <input type="text" class="form-control input primary_contact_email" name="primary_contact_email" value="" placeholder="Interviewer email" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Interviewer email'">
+            <h4>Location</h4>
+            <input type="text" class="form-control input location" name="location" id="location" value="" placeholder="Enter the location/address"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the address/location'">
 
-        <p>Phone:</p>
-        <input type="text" class="form-control input primary_contact_phone" name="primary_contact_phone" id="primary_contact_phone" value="" placeholder="Interviewer phone number"
-          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
+            <h4>Description</h4>
+            <textarea class="form-control input description" rows="3" name="description" id="description" value="" placeholder="Enter the job description"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the job description'"></textarea>
 
-        <p>Salary</p>
-        <input type="text" class="form-control input salary" name="salary" id="salary" value="" placeholder="Salary offererd" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'Salary offered'">
+            <h4>Salary</h4>
+            <input type="text" required class="form-control input salary" name="salary" id="salary" value="" placeholder="Salary offererd"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Salary offered'">
 
-        <p>Notes</p>
-        <textarea class="form-control input notes" rows="3" name="notes" id="notes" value="" placeholder="Notes" onfocus="this.placeholder = ''"
-          onblur="this.placeholder = 'notes'"></textarea>
+            <h4>Notes</h4>
+            <textarea class="form-control input notes" rows="3" name="notes" id="notes" value="" placeholder="Notes" onfocus="this.placeholder = ''"
+              onblur="this.placeholder = 'Notes'"></textarea>
 
-        <p>Stage</p>
-        <select id="stage" class="form-control input stage" name="stage">
-          <option value="applied">applied</option>
-          <option value="phone interviewed">phone interviewed</option>
-          <option value="in person interviewed">in person interviewed</option>
-          <option value="offered">offered</option>
-          <option value="archived">archived</option>
-        </select>
+            <h4>Application Status</h4>
+            <select id="stage" class="form-control input stage" name="stage">
+              <option value="applied">Applied</option>
+              <option value="phone interviewed">Phone Interviewed</option>
+              <option value="in person interviewed">In Person Interviewed</option>
+              <option value="offered">Offered</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+          <!-- column2 -->
+          <div class="col-md-3 col-lg-4 interviewed job-content">
+            <h3 class="text-center">
+              <u>Contact</u>
+            </h3>
 
-      </div>
-      <!--end container-fluid for primary contact-->
-    </div>
-    <!--end for the second half-->
+            <h4>Contact Name</h4>
+            <input type="text" class="form-control input primary_contact_name" name="primary_contact_name" id="primary_contact_name"
+              value="" placeholder="Interviewers name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer name'">
+
+            <h4>Contact Position</h4>
+            <input type="text" class="form-control input primary_contact_position" name="primary_contact_position" id="primary_contact_position"
+              value="" placeholder="Interviewer postition" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer position'">
+
+            <h4>Contact Email</h4>
+            <input type="text" class="form-control input primary_contact_email" name="primary_contact_email" value="" placeholder="Interviewer email"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer email'">
+
+            <h4>Contact Phone</h4>
+            <input type="text" class="form-control input primary_contact_phone" name="primary_contact_phone" id="primary_contact_phone"
+              value="" placeholder="Interviewer phone number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Interviewer phone number'">
+
+            <h4>Company Website</h4>
+            <input type="text" class="form-control input company_link" name="company_link" id="company_link" value="" placeholder="Enter the company's URL"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the company URL'">
+
+            <h4>Posting Link</h4>
+            <input type="text" class="form-control input posting_link" name="posting_link" id="posting_link" value="" placeholder="Enter job posting URL"
+              onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the posting URL'">
+
+          </div>
 
 
-    <div class="col-md-4">
-      <div class="container-fluid">
 
-      <div id="eventSection">EVENTS</div>
+          <!-- column3 -->
+          <div class="col-md-3 col-lg-4 offered job-content">
+            <h3 class="text-center">
+              <u>Events</u>
+            </h3>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="add-event btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Add Event</button>
+            <div id="eventSection"> </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
 
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="add-event btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add event</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-          
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add/Edit event</h4>
-              </div>
-              <div class="modal-body">
-                <div id="error"></div>
-
-                <div class='input-group date' id='datetimepicker1'>
-                  <input type='text' id="event_time" class="form-control event-input" name="event_time">
-                  <span class="input-group-addon">
-                      <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Event Details</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div id="error"></div>
+                    <br> Event Name*
+                    <br>
+                    <input type="text" id="name" class="event-input" name="name" value="">
+                    <br>
+                    <br> Event Time*
+                    <br>
+                    <input type="text" id="event_time" class="event-input" name="event_time" value="">
+                    <br>
+                    <br> Event Location
+                    <br>
+                    <input type="text" id="event_location" class="event-input" name="location" value="">
+                    <br>
+                    <br> Contact Name
+                    <br>
+                    <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
+                    <br>
+                    <br> Contact Position
+                    <br>
+                    <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
+                    <br>
+                    <br> Contact Email
+                    <br>
+                    <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
+                    <br>
+                    <br> Contact Phone
+                    <br>
+                    <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
+                    <br>
+                    <br> Notes
+                    <br>
+                    <textarea type="text-area" id="event_notes" class="event-input" name="notes" value=""></textarea>
+                    <br>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit Event</button>
+                  </div>
                 </div>
 
-                Event time*<br>
-                <!-- <input type="text" id="event_time" class="event-input" name="event_time" value=""> -->
-                <br><br>
-                Location<br>
-                <input type="text" id="event_location" class="event-input" name="location" value="">
-                <br><br>
-                Name *<br>
-                <input type="text" id="name" class="event-input" name="name" value="">
-                <br><br>
-                Notes<br>
-                <input type="text" id="event_notes" class="event-input" name="notes" value="">
-                <br><br>
-                Contact name<br>
-                <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
-                <br><br>
-                Contact position<br>
-                <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
-                <br><br>
-                Contact email<br>
-                <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
-                <br><br>
-                Contact phone<br>
-                <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
-                <br><br>
+
+
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit event</button>
-              </div>
+              <!-- end of row -->
             </div>
+            <!-- end of fluid container -->
+
+
           </div>
         </div>
       </div>
-      <!--end container-fluid for events-->
+      <button type="button" class="btn btn-primary btn-lg addJobBtn" id="submit">Submit Job</button>
+
     </div>
-    <!--end for the last third-->
+
+  </div>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add/Edit event</h4>
+        </div>
+        <div class="modal-body">
+          <div id="error"></div>
+
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' id="event_time" class="form-control event-input" name="event_time">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+
+          Event time*
+          <br>
+          <!-- <input type="text" id="event_time" class="event-input" name="event_time" value=""> -->
+          <br>
+          <br> Location
+          <br>
+          <input type="text" id="event_location" class="event-input" name="location" value="">
+          <br>
+          <br> Name *
+          <br>
+          <input type="text" id="name" class="event-input" name="name" value="">
+          <br>
+          <br> Notes
+          <br>
+          <input type="text" id="event_notes" class="event-input" name="notes" value="">
+          <br>
+          <br> Contact name
+          <br>
+          <input type="text" id="contact_name" class="event-input" name="contact_name" value="">
+          <br>
+          <br> Contact position
+          <br>
+          <input type="text" id="contact_position" class="event-input" name="contact_position" value="">
+          <br>
+          <br> Contact email
+          <br>
+          <input type="text" id="contact_email" class="event-input" name="contact_email" value="">
+          <br>
+          <br> Contact phone
+          <br>
+          <input type="text" id="contact_phone" class="event-input" name="contact_phone" value="">
+          <br>
+          <br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default submit-event" data-dismiss="modal">Submit event</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--end container-fluid for events-->
+  </div>
+  <!--end for the last third-->
   </div>
   <!-- end #div-container -->
 
-<div class="container-fluid">
-  <button type="button" class="btn btn-primary btn-lg col-md-12" id="submit">submit</button>
-</div>
+  <script>
+    $(".menu-toggle").hover(function (e) {
+      e.preventDefault();
+      $('#wrapper').toggleClass("menuDisplayed");
+    });
+  </script>
+
 
 </body>
 

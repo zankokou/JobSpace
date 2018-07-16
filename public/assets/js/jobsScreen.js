@@ -57,8 +57,13 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}"<br>
-        <h4><b><u>${job.company}</u></b><br><i>${job.title}<br><br></li>`
+        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}" `,"<br>",
+         `<h4 id='job-name'><b><u>${job.company}</u></b></h4>`, "<br>", `<i>${job.title}`, "<br>", 
+        // "<button class='delete btn btn-danger'>x</button>",
+        "<br>",
+        // "<input type='text' class='edit' style='display: none;'>",
+        // `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
+        "</li>"
 
       ].join("")
     );
