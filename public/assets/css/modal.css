@@ -1,0 +1,51 @@
+.list-modal {
+    border: 1px solid black;
+    background-color: #333;
+    color: #bdbdbd;
+    margin: 10px 0 0 0;
+    min-width: 250px;
+}
+
+.list-modal:hover {
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 10px 10px 10px;
+}
+
+.sortable {
+    min-height: 50px;
+}
+
+.content {
+    color: #ff9800;
+    text-decoration: white underline;
+}
+
+@media screen and (max-width: 1250px) {
+    .list-modal {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .list-modal {
+        min-width: 250px;
+        /* max-width: 250px; */
+    }
+}
+
+.modal-content {
+    background: #333;
+    color: white;
+}
+
+.modal-button {
+    background: #424242;
+    border: 1px solid #ff6d00 ;
+}
+
+.modal-button:hover {
+    background: #616161;
+    border: 1px solid #ff6d00 ;
+}
