@@ -37,10 +37,6 @@ router.post('/', function(req,res,next) {
   })
 });
 
-// router.get('/', function(req, res, next) {
-//   res.send(req.isAuthenticated());
-// });
-
 router.get('/', function(req, res, next) {
   res.send(req.isAuthenticated());
  });
@@ -58,11 +54,15 @@ router.get("/edit/:id", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'addScreen.html'));
 });
 
-router.get("/event", function(req, res) {
-  res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
-});
+// router.get("/event", function(req, res) {
+//   res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
+// });
 
-router.get("/event/:id", function(req, res) {
+// router.get("/event/:id", function(req, res) {
+//   res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
+// });
+
+router.get("/events", function(req, res) {
   res.sendFile(path.join(__dirname, '../public/assets/', 'eventScreen.html'));
 });
 
@@ -77,6 +77,11 @@ router.get("/api/jobs", function(req, res) {
   })
 })
 
+router.get("/api/events", function(req, res) {
+  job.selectAll(function(data) {
+    res.json(data);
+  })
+})
 // post new job
 router.post("/api/job", function(req, res) {
   job.insertOne([
