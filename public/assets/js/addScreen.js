@@ -83,12 +83,7 @@ $(document).ready(function(){
     $('.add-event').click(function() {
         $(".event-input").each(function() {
             $(this).val('');
-<<<<<<< HEAD
-        });
-
-=======
         });      
->>>>>>> dev
     });
     
     // submit new job or job edit to database

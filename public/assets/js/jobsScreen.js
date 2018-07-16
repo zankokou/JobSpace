@@ -23,19 +23,11 @@ $(document).ready(function () {
     console.log(job);
     location.pathname = `/edit/${job}`;
   }
-<<<<<<< HEAD
-=======
   
->>>>>>> dev
   var jobs = [];
 
   getJobs();
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> dev
   function initializeRows() {
     $appliedContainer.empty();
     $interviewedContainer.empty();
@@ -65,7 +57,6 @@ $(document).ready(function () {
   function createNewRow(job) {
     var $newInputRow = $(
       [
-<<<<<<< HEAD
         `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}" `,"<br>",
          `<h4 id='job-name'><b><u>${job.company}</u></b></h4>`, "<br>", `<i>${job.title}`, "<br>", 
         // "<button class='delete btn btn-danger'>x</button>",
@@ -73,10 +64,6 @@ $(document).ready(function () {
         // "<input type='text' class='edit' style='display: none;'>",
         // `<span><button class='edit btn btn-primary' id='${job.id}'>Edit</button></span>`,
         "</li>"
-=======
-        `<li id='${job.id}' class='btn list-modal' data-toggle='modal' data-target='#basicModal' data="${job.id}"<br>
-        <h4><b><u>${job.company}</u></b><br><i>${job.title}<br><br></li>`
->>>>>>> dev
 
       ].join("")
     );
