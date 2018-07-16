@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="/js/eventScreen.js"></script>
+  <!--linking the style.css-->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link rel="stylesheet" media="screen" href="/css/modal.css">
+  <link rel="stylesheet" media="screen" href="/css/addScreen.css">
+  <link rel="stylesheet" media="screen" href="/css/sideNavStyle.css">
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/jobs">
+          <span>
+            <img alt="trackLogo" style="width:30px;height:30px" src="./images/logo.png">
+          </span>
+          JobSpace</a>
+      </div>
+
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/jobs">Dashboard</a>
+            </li>
+            <li>
+                <a href="/account">Account</a>
+            </li>
+            <li>
+                <a href="/">Logout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+  </nav>
+
+  <div class="container-fluid" id="div-container-event">
+    <div class="row">
+
+      <div class="col-md-6">
+        <div id="error"></div>
+
+        <p>Event time*</p>
+        <input type="text" id="event_time" class="input form-control" name="event_time" value="" placeholder="Enter the event time"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the event time'" required>
+
+
+        <p>Location</p>
+        <input type="text" id="location" class="input form-control" name="location" value="" placeholder="Enter the location" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter the location'">
+
+
+        <p>Name*</p>
+        <input type="text" id="name" class="input form-control" name="name" value="" placeholder="Enter the event name" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'Enter the event name'">
+
+
+        <p>Notes</p>
+        <textarea class="form-control" rows="3" name="notes" id="notes" value="" placeholder="Notes" onfocus="this.placeholder = ''"
+          onblur="this.placeholder = 'notes'"></textarea>
+
+      </div>
+      <!--end of first half-->
+
+      <div class="col-md-6">
+        <p>Contact name</p>
+        <input type="text" id="contact_name" class="input form-control" name="contact_name" value="" placeholder="Enter any contact name"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter any contact name'">
+
+
+        <p>Contact position</p>
+        <input type="text" id="contact_position" class="input form-control" name="contact_position" value="" placeholder="Enter the contact position"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the contact postion'">
+
+
+        <p>Contact email</p>
+        <input type="text" id="contact_email" class="input form-control" name="contact_email" value="" placeholder="Enter the contact email"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter the contact email'">
+
+
+        <p>Contact phone</p>
+        <input type="text" id="contact_phone" class="input form-control" name="contact_phone" value="" placeholder="(999) 999-9999"
+          onfocus="this.placeholder = ''" onblur="this.placeholder = '(999) 999-9999'">
+      </div>
+      <!--end of second half-->
+
+    </div>
+    <!--end of first row-->
+
+    <div class="row col-md-12" id="required">
+      <p>* is requried</p>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg col-md-12" id="submit">submit</button>
+
+  </div>
+  <!--end of entire thing-->
+
+</body>
+
+</html>

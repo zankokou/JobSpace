@@ -1,1 +1,1 @@
-*** Burgers App
+Job Application Tracker
