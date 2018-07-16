@@ -13,14 +13,16 @@ $(document).ready(function () {
                 let eventObj = {
                     title: events[i]['name'],
                     start: events[i]['event_time'],
-                    description: `Location: ${events[i]['event_location']}\n<button href='/edit/${events[i]['job_id']}`
+                    description: `Location: ${events[i]['event_location']}`
                 }
                 eventsArr.push(eventObj);
             }
+            console.log(eventsArr);
             displayCalendar();
         }
 
         var eventsArr = [];
+
 
         // page is now ready, initialize the calendar...
         function displayCalendar() {
