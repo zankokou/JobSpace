@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event Calender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="https://www.freeiconspng.com/uploads/our-featured-products-and-services--seattle-web-design-seattle-wa-16.png"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" media="screen" href="./css/sideNavStyle.css">
+    <link rel="stylesheet" media="screen" href="./css/calender.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script> 
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!-- <style="background-color: #e3f2fd;" -->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <span>
+                        <img alt="trackLogo" style="width:30px;height:30px" src="./images/logo.png">
+                    </span>
+                    Job Tracker</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/jobs">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#">Account</a>
+                    </li>
+                    <li>
+                        <a href="#">Notification
+                            <span class="badge">42</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Schedule
+                            <span class="badge">2</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- <form class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control searchspace" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Go!</button>
+                            </span>
+                    </div>
+                </form> -->
+            </div>
+        </div>
+        <!-- <a href="#" class="btn btn-success" id="menu-toggle">Toggle Menu</a> -->
+
+    </nav>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="menu-toggle">
+            <ul class="sidebar-nav">
+                <li class="list-item">
+                    <i class="fas fa-angle-double-right"></i>
+                    <h4 class="list-text">Menu</h4>
+
+                </li>
+                <li class="list-item">
+                    <a href="/jobs">
+                        <i class="fas fa-pen-fancy"></i>
+                        <h4 class="list-text">Jobs</h4>
+
+                    </a>
+                </li>
+                <li class="list-item">
+                    <a href="/events">
+                        <i class="far fa-calendar"></i>
+                        <h4 class="list-text">Events</h4>
+                    </a>
+                </li>
+
+                <li class="list-item">
+                    <a href="/edit" id='add-job'>
+                        <i class="fas fa-plus-circle"></i>
+                        <h4 class="list-text">New</h4>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div id='calendar'></div>
+        </div>
+
+
+    </div>
+
+    <script>
+        $(".menu-toggle").hover(function (e) {
+            e.preventDefault();
+            $('#wrapper').toggleClass("menuDisplayed");
+        });
+    </script>
+    <script src="./js/eventCalenderScreen.js"></script>
+
+
+</body>
+
+</html>
