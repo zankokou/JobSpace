@@ -4,7 +4,7 @@ body {
   margin: 0;
 }
 
-.bg {
+body{
   background-image: url('../images/login3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,7 +17,7 @@ body {
 input {
   width: 150%;
   height: 20px;
-  margin: 5px 0px;
+  /* margin: 5px 0px; */
   text-align: center;
 }
 
@@ -31,10 +31,11 @@ input {
 #container {
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
+  width: 500px;
   text-align: center;
   margin-top: 17%;
   padding: 10px;
+  /* border: 1px solid black; */
 }
 
 .textfront {
@@ -63,27 +64,10 @@ button {
   text-align: center;
 }
 
-#center {
-  margin-top: 25%;
-  width: 50%;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 10px;
-}
 
 .form-control {
-  /* margin-top: 2%; */
   margin-bottom: 2%;
 }
-
-/* #stage{
-  margin-bottom:2%;
-} */
-
-/* .list {
-  margin: 10px 0px;
-  height: 25px;
-} */
 
 #div-container {
   margin-top: 3%;
@@ -134,4 +118,15 @@ hr {
 #user-info p{
   margin-top: 4%;
   margin-bottom: 13%;
+}
+.userInfo{
+  margin: 5px 5px 0px -11px;
+  width: 500px;
+  height: 30px;
+  display: block;
+  border: 1px solid black;
+}
+
+.loginBtn{
+  width: 250px;
 }

@@ -9,6 +9,12 @@ var job = {
     });
   },
 
+  allEvents: function(cb) {
+    orm.allEvents("events", function(res) {
+      cb(res);
+    });
+  },
+
   insertOne: function(cols, vals, cb) {
     orm.insertOne("jobs", cols, vals, function(res) {
       cb(res);

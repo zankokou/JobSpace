@@ -1,3 +1,7 @@
+#job-name{
+  margin-bottom: -15px;
+}
+
 .navbar {
   margin-bottom: 0px;
 }
@@ -30,6 +34,7 @@
   display: inline;
   position: absolute;
 }
+
 
 /* Sidebar */
 
@@ -102,6 +107,10 @@
 
 #wrapper.menuDisplayed .content {
   max-width: 450px;
+}
+
+#wrapper.menuDisplayed .job-content {
+  max-width: 480px;  
 }
 
 .sidebar-nav {
