@@ -9,8 +9,8 @@ var job = {
     });
   },
 
-  selectAll: function(cb) {
-    orm.selectAll("events", function(res) {
+  allEvents: function(cb) {
+    orm.allEvents("events", function(res) {
       cb(res);
     });
   },
