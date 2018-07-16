@@ -1,8 +1,8 @@
 $(document).ready(function(){
 
-    $(function () {
+ 
         $('#datetimepicker1').datetimepicker();
-    });
+    
 
     // var moment = require('moment');
     // moment().format();  
@@ -143,8 +143,15 @@ $(document).ready(function(){
     // adds or updates event in events array
     $(".submit-event").click(function(){
         let newEvent = {};
+        // let requiredName = $("#name").val().trim();
+        // let requiredTime = $("#event_time").val().trim();
+        // if (requiredName === '' || requiredTime === '') {
+        //     $("#event-error").html('* please answer required fields *');
+        //     return;
+        // }
         $(".event-input").each(function() {
             newEvent[$(this).attr('name')] = $(this).val().trim();
+            console.log(newEvent)
         });
         
         if (currentEvent) {
