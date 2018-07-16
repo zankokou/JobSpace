@@ -78,7 +78,7 @@ router.get("/api/jobs", function(req, res) {
 })
 
 router.get("/api/events", function(req, res) {
-  job.selectAll(function(data) {
+  job.allEvents(function(data) {
     res.json(data);
   })
 })
