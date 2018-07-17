@@ -11,19 +11,19 @@ As young professionals who are graduating bootcamp and looking to enter the job 
 ## Technologies used
 * Bootstrap
 
+* FullCalendar
+
+* Bootstrap Datetimepicker
+
 * moment.js 
 
-* calender.css
-
-* Bootstrap
+* Sortable (jQuery UI)
 
 * node.js
 
 * express.js
 
-* npm packages: express, body-parser, path, mysql
-
-* sortable.js
+* MySQL
 
 * orm.js
 
