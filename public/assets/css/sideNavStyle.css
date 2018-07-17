@@ -58,17 +58,22 @@
   /* border: 5px solid rgb(41, 187, 41); */
 }
 
-.content {
+.border {
+  border-right: 5px  #1f1f1f solid;
+  height: 900px;
+}
+
+.header-content {
   background: #1f1f1f;
-  color: hotpink;
   text-align: center;
   border-radius: 10px;
   border: 1px gold solid;
   margin: 0px 2px 10px 2px;
-  max-width: 400px;
-  text-decoration: underline dotted white;
+  color: #ff9800;
+  text-decoration: white underline;
   text-decoration-skip: ink;
 }
+
 
 .list-content {
   background: #eceff1;
