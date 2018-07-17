@@ -17,13 +17,7 @@
 
 .event-input {
     color: black;
-    width: 75%;
-}
-
-#event_notes {
     width: 100%;
-    max-width: 100%;
-    max-height: 100px;
 }
 
 #notes {

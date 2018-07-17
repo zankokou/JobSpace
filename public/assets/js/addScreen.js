@@ -76,7 +76,11 @@ $(document).ready(function(){
         currentEvent = index;
         console.log('current event', currentEvent);
         for (var key in events[index]) {
-            $(`#${key}`).val(events[index][key]);
+            if ((events[index][key] === 'undefined') || (!events[index][key])) {
+                $(`#${key}`).val('');
+            } else {
+                $(`#${key}`).val(events[index][key]);
+            }
         }        
     });
 
@@ -143,12 +147,20 @@ $(document).ready(function(){
     // adds or updates event in events array
     $(".submit-event").click(function(){
         let newEvent = {};
-        // let requiredName = $("#name").val().trim();
-        // let requiredTime = $("#event_time").val().trim();
-        // if (requiredName === '' || requiredTime === '') {
-        //     $("#event-error").html('* please answer required fields *');
-        //     return;
-        // }
+        let name = $("#name").val().trim();
+        let time = $("#event_time").val().trim();
+        if (name === '' || time === '') {
+            if (name === '') {
+                $('#name').css('border-style', 'solid');
+                $('#name').css('border-color', 'red');
+            }
+            if (time === '') {
+                $('#event_time').css('border-style', 'solid');
+                $('#event_time').css('border-color', 'red');
+            }
+            $("#event-error").html('* please provide required input *');
+            return;
+        }
         $(".event-input").each(function() {
             newEvent[$(this).attr('name')] = $(this).val().trim();
             console.log(newEvent)
@@ -165,6 +177,7 @@ $(document).ready(function(){
         }
         renderEvents();
         console.log(events)
+        $('#myModal').modal('hide');
     
     });
 
@@ -172,5 +185,10 @@ $(document).ready(function(){
     $(".eventDiv").each(function() {
         console.log($(this).data());
     });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        $("#event-error").html('');
+        $('#name').css('border-style', 'none');
+    })
 
 });

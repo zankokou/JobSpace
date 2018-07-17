@@ -19,14 +19,15 @@
   height: 600px;
   border: 1px solid black;
 }
+
 #account-info p{
     margin-top: 4%;
     margin-bottom: 13%;
     text-align: center;
   }
   
-  #account-info strong {
-    font-size: 16px;
-    text-decoration: underline;
-  }
+#account-info strong {
+  font-size: 16px;
+  text-decoration: underline;
+}
   
