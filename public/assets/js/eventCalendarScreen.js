@@ -10,10 +10,15 @@ $(document).ready(function () {
 
         function populateEvents(events) {
             for (i = 0; i < events.length; i++) {
+                get_random = function (list) {
+                    return list[Math.floor((Math.random()*list.length))];
+                } 
+                let color = ["red", "green", "darkcyan", "blue", "orange", "pink", "purple", "cadetblue"];  
                 let eventObj = {
                     title: events[i]['name'],
                     start: events[i]['event_time'],
-                    description: `Location: ${events[i]['event_location']}`
+                    description: `Location: ${events[i]['event_location']}`,
+                    color: get_random(color)
                 }
                 eventsArr.push(eventObj);
             }
