@@ -17,7 +17,7 @@ CREATE TABLE jobs (
   primary_contact_position VARCHAR(100),
   primary_contact_email VARCHAR(256),
   primary_contact_phone VARCHAR(25),
-  salary INT,
+  salary INT DEFAULT NULL,
   notes TEXT,
   stage VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)

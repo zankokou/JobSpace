@@ -94,9 +94,18 @@ $(document).ready(function(){
     $("#submit").click(function(){
         let newJob = {};
 
+        if (($(".company").val() === '')) {
+            $('#job-error').html('* must input company name *').css('color', 'red');
+            return;
+        }
+
         $(".input").each(function() {
             newJob[$(this).attr('name')] = $(this).val().trim();
         });
+
+        if (!Number.isInteger(newJob['salary'])) {
+            newJob['salary'] = 0;
+        }
 
         let url = "/api/job";
         let type = "POST";
