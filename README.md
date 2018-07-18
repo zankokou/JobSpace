@@ -29,6 +29,10 @@ As young professionals who are graduating bootcamp and looking to enter the job 
 
 * MVC
 
+### Execution
+* Run `npm install` from your CLI within the main directory to enable dependencies.
+* Create database & tables from schema file.
+
 ### Contributors
 Scott 'Scott' Gall </br>
 TreShawn 'Treek' Duncan</br>
